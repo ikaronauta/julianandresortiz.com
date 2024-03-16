@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Digital-7';
+    src: url(../assets/fonts/digital-7.ttf) format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dukeplus';
+    src: url(../assets/fonts/dukeplus.woff) format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(../assets/fonts/Roboto-Regular.ttf) format('truetype');
+    font-display: swap;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    font-family: sans-serif, helvetica;
+}
+
+#root {
+    height: 100vh;
+    width: 100%;
+}
+
+.view {
+    height: inherit;
+    width: inherit;
+}
+
+.show {
+    opacity: 1;
+    transition: opacity 2.5s ease;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.hideSlow {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
