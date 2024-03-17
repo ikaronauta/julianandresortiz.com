@@ -168,4 +168,8 @@
     .viewN {
         height: auto;
     }
+
+    #footerView3 {
+        display: none;
+    }
   }
