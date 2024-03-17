@@ -28,7 +28,11 @@
     margin: 0 auto 2rem auto;
 }
 
-#view1 h2 {
+#view1 p{
+    margin-bottom: 1rem;
+}
+
+#view1 h2, #view3 h2 {
     color: rgb(255, 115, 0);
 }
 
@@ -57,6 +61,7 @@
 .iconSkill {
     width: 2rem;
     margin-right: 0.5rem;
+    font-size: 0.5rem;
 }
 
 .left {
@@ -77,7 +82,7 @@
     background-color: rgb(255, 115, 0);
 }
 
-#view1 hr{
+#view1 hr, #view3 hr{
     margin-bottom: 1rem;
     background-color: rgb(255, 115, 0);
     height: 1px;

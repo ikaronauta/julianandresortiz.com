@@ -1,15 +1,9 @@
-import { skills, intro } from "../assets/data/datos.js";
-
-// Constantes
-const root = $("#root");
+import { dataViews } from "../assets/data/datos.js";
 
 // Variables
-let view2, view3;
-let desCountSkill = 0;
 let countSkill = 0;
 let footerView3open = false;
 let skillsOpen = false;
-
 
 //TimeOuts/Itervals
 let mostrarSkill, ocultarSkills;
@@ -27,10 +21,7 @@ export function viewContent() {
 }
 
 function view1Container() {
-  let view1 = $("<div>", {
-    id: "view1",
-    class: "viewN",
-  });
+  let view1 = createView("view1");
 
   let logo = $("<img>", {
     id: "logoFull",
@@ -39,38 +30,26 @@ function view1Container() {
     src: "assets/images/logoFull_blanco.png",
   });
 
-  let subTitle = $("<h2>", {
-    text: "Acerca de mí",
-  });
-
-  let hr = $("<hr>");
-
-  let parrafo = $("<p>").html(intro[0].mensaje);
-
   view1.append(logo);
-  view1.append(subTitle);
-  view1.append(hr);
-  view1.append(parrafo);
+  view1.append(subTitle(dataViews.view1.title));
+  view1.append($("<hr>"));
+
+  dataViews.view1.items.forEach(function(item){
+    view1.append($(item.etiqueta, {
+      text: item.texto,
+    }));
+  });
 
   return view1;
 }
 
 function view2Container() {
-  view2 = $("<div>", {
-    id: "view2",
-    class: "viewN",
-  });
+  let view2 = createView("view2");
 
-  let h2 = $("<h2>", {
-    text: "Skills"
-  });
+  view2.append(subTitle(dataViews.view2.title));
+  view2.append($("<hr>"));
 
-  let hr = $("<hr>");
-
-  view2.append(h2);
-  view2.append(hr);
-
-  skills.forEach(function(skill){
+  dataViews.view2.items.forEach(function(skill){
     let container = $("<div>", {
       class: "container-skill disable"
     });
@@ -111,11 +90,10 @@ function view2Container() {
 }
 
 function view3Container() {
-  view3 = $("<div>", {
-    id: "view3",
-    class: "viewN",
-    text: "Vestibulum non urna sed enim laoreet dapibus. In mi neque, dignissim ac leo in, maximus feugiat est. Proin sit amet luctus ipsum, non eleifend libero. Fusce vitae ipsum vitae est ultricies consectetur nec sed mauris. Integer vel rutrum urna. Proin lacus libero, vulputate tincidunt euismod quis, congue lacinia metus. Aliquam dignissim facilisis ipsum, quis posuere tortor eleifend eu. Proin at condimentum nibh. Mauris laoreet metus dolor, et blandit nunc semper quis. Ut at ullamcorper ligula, et luctus nunc. In rutrum ante felis, et dictum sem placerat ut. Duis mollis lorem in orci sagittis condimentum. Proin vitae lacus feugiat, fermentum turpis sit amet, malesuada tellus. Vivamus hendrerit dui odio, non sagittis urna mattis id.",
-  });
+  let view3 = createView("view3");
+
+  view3.append(subTitle(dataViews.view3.title));
+  view3.append($("<hr>"));
 
   return view3;
 }
@@ -140,14 +118,6 @@ function listenersView1() {
     let view3Top = $("#view3").offset().top;
     let diferenciaView2TopScrollTopPixeles = view2Top - scrollTop;
     let diferenciaView3TopScrollTopPixeles = view3Top - scrollTop;
-
-    //console.log(`disparadorFooterVie3: ${disparadorFooterVie3} - diferenciaView3TopScrollTopPixeles: ${diferenciaView3TopScrollTopPixeles}`);
-
-    //console.log(relacionView3TopScrollTopEnPorcentaje);
-
-    //console.log(`view3Top: ${view3Top} - scrollTop: ${scrollTop} - diferenciaView3TopScrollTopPixeles: ${diferenciaView3TopScrollTopPixeles}`);
-
-    //console.log(`windowHeight: ${windowHeight} - relacionView3TopScrollTop: ${relacionView3TopScrollTop}`);
 
     if (diferenciaView2TopScrollTopPixeles < disparadorSkills && !skillsOpen) {
       skillsOpen = true;
@@ -187,5 +157,18 @@ function listenersView1() {
       $("#footerView3").addClass("disableFooterView3"); 
       footerView3open = false;
     }
+  });
+}
+
+function createView(idView){
+  return $("<div>", {
+    id: idView,
+    class: "viewN",
+  });
+}
+
+function subTitle(title){
+  return $("<h2>", {
+    text: title,
   });
 }
