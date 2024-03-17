@@ -9,11 +9,13 @@ let skillsOpen = false;
 let mostrarSkill, ocultarSkills;
 
 export function viewContent() {
-  listenersView1();
+  
   $("#root").append(view1Container());
   $("#root").append(view2Container());
   $("#root").append(view3Container());
   $("#root").append(footerView3());
+
+  listenersView1();
 
   setTimeout(() => {
     $(".viewN").addClass("mostrar");
@@ -94,17 +96,9 @@ function view3Container() {
 
   view3.append(subTitle(dataViews.view3.title));
   view3.append($("<hr>"));
+  view3.append(createForm);
 
   return view3;
-}
-
-function footerView3(){
-  let footer = $("<footer>", {
-    id: "footerView3",
-    class: "disableFooterView3",
-  }).html("<p>® Julián A. Ortiz</p><p>2024</p>");
-
-  return footer;
 }
 
 function listenersView1() {
@@ -158,6 +152,10 @@ function listenersView1() {
       footerView3open = false;
     }
   });
+
+  $("#form-concact").on("submit", function(e){
+    e.preventDefault();
+  });
 }
 
 function createView(idView){
@@ -171,4 +169,98 @@ function subTitle(title){
   return $("<h2>", {
     text: title,
   });
+}
+
+function footerView3(){
+  let footer = $("<footer>", {
+    id: "footerView3",
+    class: "disableFooterView3",
+  }).html("<p>® Julián A. Ortiz</p><p>2024</p>");
+
+  return footer;
+}
+
+function createForm(){
+  let form = $("<form>", {
+    id: "form-concact",
+    class: "form"
+  });
+
+  let labelName = $("<label>", {
+    class: "label-form",
+    text: "Nombre",
+    for: "name"
+  });
+
+  let inputName = $("<input>", {
+    id: "name",
+    type: "text",
+    class: "input-form",
+    placeholder: "Nombre"
+  }) 
+
+  let section1 = $("<div>", {
+    class: "section-form",
+  });
+
+  section1.append(labelName);
+  section1.append(inputName);
+
+  let labelEmail = $("<label>", {
+    class: "label-form",
+    text: "Email",
+    for: "email"
+  });
+
+  let inputEmail = $("<input>", {
+    id: "email",
+    type: "email",
+    class: "input-form",
+    placeholder: "Email"
+  });
+
+  let section2 = $("<div>", {
+    class: "section-form",
+  });
+
+  section2.append(labelEmail);
+  section2.append(inputEmail);
+
+  let labelMensaje = $("<label>", {
+    class: "label-form",
+    text: "Mensaje",
+    for: "mensaje"
+  });
+
+  let textareaMensaje = $("<textarea>", {
+    id: "mensaje",
+    class: "textarea-form",
+    placeholder: "Mensaje"
+  });
+
+  let section3 = $("<div>", {
+    class: "section-form",
+  });
+
+  section3.append(labelMensaje);
+  section3.append(textareaMensaje);
+
+  let button = $("<button>", {
+    type: "submit",
+    class: "button-form",
+    text: "Enviar",
+  });
+
+  let section4 = $("<div>", {
+    class: "section-form",
+  });
+
+  section4.append(button);
+
+  form.append(section1);
+  form.append(section2);
+  form.append(section3);
+  form.append(section4);
+
+  return form;
 }
