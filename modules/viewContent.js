@@ -4,19 +4,22 @@ import { skills, intro } from "../assets/data/datos.js";
 const root = $("#root");
 
 // Variables
-let view2;
-let countMostrar = 0;
+let view2, view3;
+let desCountSkill = 0;
 let countSkill = 0;
+let footerView3open = false;
+let skillsOpen = false;
 
 
 //TimeOuts/Itervals
-let mostrarSkill;
+let mostrarSkill, ocultarSkills;
 
 export function viewContent() {
   listenersView1();
   $("#root").append(view1Container());
   $("#root").append(view2Container());
   $("#root").append(view3Container());
+  $("#root").append(footerView3());
 
   setTimeout(() => {
     $(".viewN").addClass("mostrar");
@@ -108,7 +111,7 @@ function view2Container() {
 }
 
 function view3Container() {
-  let view3 = $("<div>", {
+  view3 = $("<div>", {
     id: "view3",
     class: "viewN",
     text: "Vestibulum non urna sed enim laoreet dapibus. In mi neque, dignissim ac leo in, maximus feugiat est. Proin sit amet luctus ipsum, non eleifend libero. Fusce vitae ipsum vitae est ultricies consectetur nec sed mauris. Integer vel rutrum urna. Proin lacus libero, vulputate tincidunt euismod quis, congue lacinia metus. Aliquam dignissim facilisis ipsum, quis posuere tortor eleifend eu. Proin at condimentum nibh. Mauris laoreet metus dolor, et blandit nunc semper quis. Ut at ullamcorper ligula, et luctus nunc. In rutrum ante felis, et dictum sem placerat ut. Duis mollis lorem in orci sagittis condimentum. Proin vitae lacus feugiat, fermentum turpis sit amet, malesuada tellus. Vivamus hendrerit dui odio, non sagittis urna mattis id.",
@@ -117,26 +120,72 @@ function view3Container() {
   return view3;
 }
 
+function footerView3(){
+  let footer = $("<footer>", {
+    id: "footerView3",
+    class: "disableFooterView3",
+  }).html("<p>® Julián A. Ortiz</p><p>2024</p>");
+
+  return footer;
+}
+
 function listenersView1() {
   $(window).on("scroll", function () {
     let windowHeight = $(window).height();
-    let disparador = windowHeight * 0.35;
+    let disparadorSkills = windowHeight * 0.35;
+    let disparadorFooterVie3 = windowHeight * 0.35;
     let scrollTop = $(window).scrollTop();
 
-    if (scrollTop > disparador) {
-      countMostrar++
+    let view2Top = $("#view2").offset().top;
+    let view3Top = $("#view3").offset().top;
+    let diferenciaView2TopScrollTopPixeles = view2Top - scrollTop;
+    let diferenciaView3TopScrollTopPixeles = view3Top - scrollTop;
 
-      if (countMostrar < 2) {
-        mostrarSkill = setInterval(() => {
-          if(countSkill <= $('.container-skill').length){
-            $($('.container-skill')[countSkill]).removeClass('disable');
-            $($('.container-skill')[countSkill]).addClass('enable');
-            countSkill++
-          } else {
-            clearInterval(mostrarSkill);
-          }
-        }, 500);
-      }
+    //console.log(`disparadorFooterVie3: ${disparadorFooterVie3} - diferenciaView3TopScrollTopPixeles: ${diferenciaView3TopScrollTopPixeles}`);
+
+    //console.log(relacionView3TopScrollTopEnPorcentaje);
+
+    //console.log(`view3Top: ${view3Top} - scrollTop: ${scrollTop} - diferenciaView3TopScrollTopPixeles: ${diferenciaView3TopScrollTopPixeles}`);
+
+    //console.log(`windowHeight: ${windowHeight} - relacionView3TopScrollTop: ${relacionView3TopScrollTop}`);
+
+    if (diferenciaView2TopScrollTopPixeles < disparadorSkills && !skillsOpen) {
+      skillsOpen = true;
+
+      mostrarSkill = setInterval(() => {
+        if(countSkill <= $('.container-skill').length){
+          $($('.container-skill')[countSkill]).removeClass('disable');
+          $($('.container-skill')[countSkill]).addClass('enable');
+          countSkill++
+        } else {
+          countSkill = 0;
+          clearInterval(mostrarSkill);
+        }
+      }, 500);
+    }
+
+    if (diferenciaView2TopScrollTopPixeles > disparadorSkills && skillsOpen) {
+      skillsOpen = false;
+      countSkill = 0;
+      clearInterval(mostrarSkill);
+
+      $('.container-skill').each(function(){
+        $(this).removeClass('enable');
+        $(this).addClass('disable');
+      });
+    }
+
+
+    if(diferenciaView3TopScrollTopPixeles < disparadorFooterVie3 && !footerView3open){
+      $("#footerView3").removeClass("disableFooterView3");
+        $("#footerView3").addClass("enableFooterView3");
+        footerView3open = true;
+    }
+
+    if(diferenciaView3TopScrollTopPixeles > disparadorFooterVie3 && footerView3open){
+      $("#footerView3").removeClass("enableFooterView3");
+      $("#footerView3").addClass("disableFooterView3"); 
+      footerView3open = false;
     }
   });
 }
