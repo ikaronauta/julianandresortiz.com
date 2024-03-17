@@ -132,8 +132,8 @@
 .form {
     color: rgb(255, 115, 0);
     border: 2px solid rgb(255, 115, 0);
-    padding: 0.5rem;
-    height: 60vh;
+    padding: 1rem 0.5rem;
+    height: auto;
     border-radius: 5px;
 
     display: flex;
@@ -142,6 +142,7 @@
 }
 
 .section-form{
+    margin: 0.5rem 0;
     display: flex;
     flex-direction: column;
 }
@@ -161,3 +162,10 @@
     border-radius: 5px;
     padding: 0.5rem;
 }
+
+/* Media query para pantallas con una altura máxima de 600px */
+@media (max-height: 500px) {
+    .viewN {
+        height: auto;
+    }
+  }
