@@ -113,7 +113,7 @@ body {
 }
 
 .alert {
-    background-color: aliceblue;
+    background-color: white;
     width: 20rem;
     min-height: 10rem;
     padding: 0.5rem;
@@ -137,6 +137,6 @@ body {
     padding: 0.5rem;
     background-color: black;
     border-radius: 5px;
-    color: aliceblue;
+    color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

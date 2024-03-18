@@ -93,6 +93,13 @@ export const dataViews = {
         active: true,
       },
       {
+        id: 1,
+        title: "LinkedIn",
+        href: "https://www.linkedin.com/in/juli%C3%A1n-andres-ortiz-galindo-programador-junior/",
+        logo: "linkedin.svg",
+        active: true,
+      },
+      {
         id: 2,
         title: "Github",
         href: "https://github.com/ikaronauta",
@@ -116,61 +123,3 @@ export const dataViews = {
     ],
   }
 }
-
-export const skills = [
-  {
-    id: 1,
-    title: "Javascript",
-    nivel: "70%",
-    logo: "js.svg",
-    active: true,
-  },
-  {
-    id: 2,
-    title: "jQuery",
-    nivel: "60%",
-    logo: "jquery.svg"
-  },
-  {
-    id: 3,
-    title: "HTML",
-    nivel: "75%",
-    logo: "html-5.svg",
-    active: true,
-  },
-  {
-    id: 4,
-    title: "CSS",
-    nivel: "60%",
-    logo: "css-3.svg",
-    active: true,
-  },
-  {
-    id: 5,
-    title: "Angular",
-    nivel: "10%",
-    logo: "angular.svg",
-    active: true,
-  },
-  {
-    id: 6,
-    title: "Node",
-    nivel: "20%",
-    logo: "node-js.svg",
-    active: true,
-  },
-  {
-    id: 7,
-    title: "SQL",
-    nivel: "50%",
-    logo: "sql.svg",
-    active: true,
-  },
-  {
-    id: 8,
-    title: "Git",
-    nivel: "50%",
-    logo: "git.svg",
-    active: true,
-  },
-];
