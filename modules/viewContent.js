@@ -1,5 +1,5 @@
 import { dataEmail, dataViews } from "../assets/data/datos.js";
-import { louder } from "../core/main.js";
+import { createLouder, destroyLouder, alert1 } from "../core/main.js";
 
 // Variables
 let countSkill = 0;
@@ -16,7 +16,6 @@ export function viewContent() {
   $("#root").append(view2Container());
   $("#root").append(view3Container());
   $("#root").append(footerView3());
-  $("#root").append(louder);
 
   listenersView1();
 
@@ -159,20 +158,23 @@ function listenersView1() {
   $("#form-concact").on("submit", function (e) {
     e.preventDefault();
 
-    $(".loader-container").css("display", "flex");
+    createLouder();
 
     emailjs.send(dataEmail.serviceID, dataEmail.templateID, {
       user_name: $(this.user_name).val() == "" ? "Sin Nombre" : $(this.user_name).val(),
       user_email: $(this.user_email).val(),
       message: $(this.message).val(),
     }).then(() => {
-      $(".loader-container").css("display", "none");
+      destroyLouder();
       $(this.user_name).val("");
       $(this.user_email).val("");
       $(this.message).val("");
+      alert1("Mensaje enviado con exito !!!.", "mensaje-enviado.gif");
     }, (error) => {
-      $(".loader-container").css("display", "none");
-      console.log('FAILED...', error);
+
+      destroyLouder();
+      alert1("Mensaje no enviado, intentelo nuevamente.", "mensaje-no-enviado.gif");
+      console.log(error.text)
     });
   });
 }
