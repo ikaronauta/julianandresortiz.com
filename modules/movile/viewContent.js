@@ -1,5 +1,5 @@
-import { dataEmail, dataViews } from "../assets/data/datos.js";
-import { createLouder, destroyLouder, alert1 } from "../core/main.js";
+import { dataEmail, dataViews } from "../../../assets/data/datos.js";
+import { createLouder, destroyLouder, alert1 } from "../../../core/main.js";
 
 // Variables
 let countSkill = 0;

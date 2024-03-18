@@ -1,4 +1,4 @@
-import { viewContent } from "./viewContent.js";
+import { viewContent } from "./movile/viewContent.js";
 
 // Constantes
 const root = $("#root");
@@ -16,7 +16,7 @@ export function homeMovile() {
     class: "view homePhone",
   });
 
-  $("#root").append(viewMain);
+  root.append(viewMain);
 
   timeOutsIntervals();
   initEventListeners();

@@ -1,0 +1,48 @@
+.nav-pc {
+    width: 100%;
+    height: 10vh;
+    padding: 0.5rem 3rem;
+    top: 0;
+    left: 0;
+    position: fixed;
+    transform: translateX(110%);
+    border-bottom: 1px #FF9800 solid;
+    background-color: black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-pc {
+    height: 95%;
+    width: auto;
+    cursor: pointer;
+}
+
+.logo-pc:hover{
+    content: url("/assets/images/logoPC_blanco.png");
+}
+
+.nav-pc ul {
+    color: white;
+    display: flex;
+    
+}
+
+.nav-pc ul li {
+    list-style: none;
+    margin-right: 1rem;
+    color: #FF9800;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav-pc ul li:hover {
+    color: white;
+}
+
+.navActive {
+    transform: translateX(0);
+    transition: transform 3.5s ease;
+}

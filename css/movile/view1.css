@@ -1,7 +1,6 @@
 .viewN {
     height: 100vh;
     width: 100%;
-    font-family: 'Roboto';
     color: aliceblue;
     padding: 2rem;
     line-height: 1.5;
@@ -33,7 +32,7 @@
 }
 
 #view1 h2, #view3 h2 {
-    color: rgb(255, 115, 0);
+    color: #FF9800;
 }
 
 #view2 {
@@ -79,12 +78,12 @@
 
 .nivel {
     height: 100%;
-    background-color: rgb(255, 115, 0);
+    background-color: #FF9800;
 }
 
 #view1 hr, #view3 hr{
     margin-bottom: 2rem;
-    background-color: rgb(255, 115, 0);
+    background-color: #FF9800;
     height: 1px;
 }
 
@@ -110,7 +109,7 @@
     width: 100%;
     padding: 1.5vh 0;
     font-size: 1rem;
-    background-color: rgb(255, 115, 0);
+    background-color: #FF9800;
     color: black;
     bottom: 0;
 
@@ -130,8 +129,8 @@
 }
 
 .form {
-    color: rgb(255, 115, 0);
-    border: 2px solid rgb(255, 115, 0);
+    color: #FF9800;
+    border: 2px solid #FF9800;
     padding: 1rem 0.5rem;
     height: auto;
     border-radius: 5px;
@@ -157,7 +156,7 @@
 }
 
 .button-form {
-    background-color: rgb(255, 115, 0);
+    background-color: #FF9800;
     color: black;
     border-radius: 5px;
     padding: 0.5rem;
