@@ -1,6 +1,8 @@
-export const intro = [
-  {id: 1, mensaje: ""}
-]
+export const dataEmail = {
+  dataInit: "H8Br1sGNgkyP3oJfh",
+  serviceID: "service_yajibic",
+  templateID: "template_e051t9p",
+};
 
 export const dataViews = {
   view1: {

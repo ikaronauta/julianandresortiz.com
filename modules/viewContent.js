@@ -1,4 +1,5 @@
-import { dataViews } from "../assets/data/datos.js";
+import { dataEmail, dataViews } from "../assets/data/datos.js";
+import { louder } from "../core/main.js";
 
 // Variables
 let countSkill = 0;
@@ -9,11 +10,13 @@ let skillsOpen = false;
 let mostrarSkill, ocultarSkills;
 
 export function viewContent() {
+  emailjs.init(dataEmail.dataInit);
   
   $("#root").append(view1Container());
   $("#root").append(view2Container());
   $("#root").append(view3Container());
   $("#root").append(footerView3());
+  $("#root").append(louder);
 
   listenersView1();
 
@@ -153,8 +156,24 @@ function listenersView1() {
     }
   });
 
-  $("#form-concact").on("submit", function(e){
+  $("#form-concact").on("submit", function (e) {
     e.preventDefault();
+
+    $(".loader-container").css("display", "flex");
+
+    emailjs.send(dataEmail.serviceID, dataEmail.templateID, {
+      user_name: $(this.user_name).val() == "" ? "Sin Nombre" : $(this.user_name).val(),
+      user_email: $(this.user_email).val(),
+      message: $(this.message).val(),
+    }).then(() => {
+      $(".loader-container").css("display", "none");
+      $(this.user_name).val("");
+      $(this.user_email).val("");
+      $(this.message).val("");
+    }, (error) => {
+      $(".loader-container").css("display", "none");
+      console.log('FAILED...', error);
+    });
   });
 }
 
@@ -214,6 +233,7 @@ function createForm(){
   let inputName = $("<input>", {
     id: "name",
     type: "text",
+    name: "user_name",
     class: "input-form",
     placeholder: "Nombre"
   }) 
@@ -227,15 +247,17 @@ function createForm(){
 
   let labelEmail = $("<label>", {
     class: "label-form",
-    text: "Email",
+    text: "Email *",
     for: "email"
   });
 
   let inputEmail = $("<input>", {
     id: "email",
     type: "email",
+    name: "user_email",
     class: "input-form",
-    placeholder: "Email"
+    placeholder: "Email",
+    required: true,
   });
 
   let section2 = $("<div>", {
@@ -247,14 +269,16 @@ function createForm(){
 
   let labelMensaje = $("<label>", {
     class: "label-form",
-    text: "Mensaje",
-    for: "mensaje"
+    text: "Mensaje *",
+    for: "mensaje",
   });
 
   let textareaMensaje = $("<textarea>", {
     id: "mensaje",
+    name: "message",
     class: "textarea-form",
-    placeholder: "Mensaje"
+    placeholder: "Mensaje",
+    required: true,
   });
 
   let section3 = $("<div>", {
