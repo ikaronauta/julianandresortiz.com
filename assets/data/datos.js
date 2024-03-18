@@ -82,7 +82,36 @@ export const dataViews = {
   },
   view3: {
     title: "Contacto",
-    texto: [],
+    items: [
+      {
+        id: 1,
+        title: "Instagram",
+        href: "https://www.instagram.com/julianandresortiz",
+        logo: "instagram.svg",
+        active: true,
+      },
+      {
+        id: 2,
+        title: "Github",
+        href: "https://github.com/ikaronauta",
+        logo: "github.svg",
+        active: true,
+      },
+      {
+        id: 3,
+        title: "Whatsapp",
+        href: "whatsapp://send?phone=+573503349084",
+        logo: "whatsapp.svg",
+        active: true,
+      },
+      {
+        id: 4,
+        title: "Email",
+        href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com",
+        logo: "email.svg",
+        active: true,
+      },
+    ],
   }
 }
 

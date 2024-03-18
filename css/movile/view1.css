@@ -106,16 +106,16 @@
 
 #footerView3 {
     position: fixed;
-    height: 10vh;
+    /* height: 10vh; */
     width: 100%;
+    padding: 1.5vh 0;
     font-size: 1rem;
     background-color: rgb(255, 115, 0);
     color: black;
     bottom: 0;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -161,6 +161,10 @@
     color: black;
     border-radius: 5px;
     padding: 0.5rem;
+}
+
+.red-social {
+    width: 7vh;
 }
 
 /* Media query para pantallas con una altura máxima de 600px */

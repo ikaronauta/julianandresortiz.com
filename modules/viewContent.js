@@ -175,7 +175,26 @@ function footerView3(){
   let footer = $("<footer>", {
     id: "footerView3",
     class: "disableFooterView3",
-  }).html("<p>® Julián A. Ortiz</p><p>2024</p>");
+  });
+
+  dataViews.view3.items.forEach(function(item){
+    let a = $("<a>", {
+      href: item.href,
+    });
+
+    if(item.title != "Email" && item.title != "Whatsapp"){
+      a.attr("target", "_blank");
+      a.attr("rel", "noopener noreferrer");
+    }
+
+    let img = $("<img>", {
+      class: "red-social",
+      src: `assets/images/${item.logo}`,
+    });
+
+    a.append(img);
+    footer.append(a);
+  });
 
   return footer;
 }
