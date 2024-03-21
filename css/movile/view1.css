@@ -4,7 +4,7 @@
     color: aliceblue;
     padding: 2rem;
     line-height: 1.5;
-    font-size: 1.2rem;
+    font-size: 20px;
     opacity: 0;
 
     display: flex;
@@ -51,7 +51,7 @@
     padding: 0 0.5rem;
     border-radius: 5px;
     height: 4rem;
-    font-size: 1rem;
+    font-size: 15px;
 
     display: flex;
     justify-content: space-between;
