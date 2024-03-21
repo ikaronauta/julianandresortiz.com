@@ -10,7 +10,7 @@ export const dataViews = {
     items: [
       {
         etiqueta: "<p>",
-        texto: "Desarrollador Junior con dos años de experiencia en desarrollo web, guiado por mi fe y mi pasión por la tecnología. Geek por naturaleza, amante de los gatos y soñador por convicción.",
+        texto: "Desarrollador Junior con dos años de experiencia en desarrollo web. Soñador e idealista, amante de los gatos, Gueek y un poco introvertido.",
       },
       {
         etiqueta: "<p>",
@@ -18,7 +18,7 @@ export const dataViews = {
       },
       {
         etiqueta: "<p>",
-        texto: "Me dedico a encontrar soluciones pragmáticas, simples pero eficientes, sin dejar de lado el estilo. Mi enfoque se centra en la funcionalidad y la elegancia en cada proyecto que emprendo.",
+        texto: "Me esfuerzo por encontrar soluciones practicas, simples pero eficientes.",
       }
     ],
   },
@@ -130,7 +130,7 @@ export const dataViewsPC = {
     items: [
       {
         etiqueta: "<p>",
-        texto: "Desarrollador Junior con dos años de experiencia en desarrollo web, guiado por mi fe y mi pasión por la tecnología. Geek por naturaleza, amante de los gatos y soñador por convicción.",
+        texto: "Desarrollador Junior con dos años de experiencia en desarrollo web. Soñador e idealista, amante de los gatos, Gueek y un poco introvertido.",
       },
       {
         etiqueta: "<p>",
@@ -138,7 +138,7 @@ export const dataViewsPC = {
       },
       {
         etiqueta: "<p>",
-        texto: "Me dedico a encontrar soluciones pragmáticas, simples pero eficientes, sin dejar de lado el estilo. Mi enfoque se centra en la funcionalidad y la elegancia en cada proyecto que emprendo.",
+        texto: "Me esfuerzo por encontrar soluciones practicas, simples pero eficientes.",
       }
     ],
   },

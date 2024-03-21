@@ -4,6 +4,7 @@
     color: aliceblue;
     padding: 2rem;
     line-height: 1.5;
+    font-size: 1.2rem;
     opacity: 0;
 
     display: flex;
@@ -18,7 +19,6 @@
 }
 
 #view1 {
-    /* background-color: #3498db; */
     color: aliceblue;
 }
 
@@ -51,6 +51,7 @@
     padding: 0 0.5rem;
     border-radius: 5px;
     height: 4rem;
+    font-size: 1rem;
 
     display: flex;
     justify-content: space-between;
