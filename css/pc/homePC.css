@@ -1,144 +1,60 @@
-.nav-pc {
-    z-index: 999;
+.homePC {
     width: 100%;
-    height: 15vh;
-    padding: 0.5rem 3rem;
-    top: 0;
-    left: 0;
-    font-size: 1.7rem;
-    position: fixed;
-    transform: translateX(110%);
-    border-bottom: 1px #FF9800 solid;
-    background-color: black;
+    height: 100%;
 
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.logo-pc {
-    height: 95%;
-    width: auto;
-    cursor: pointer;
+.homePC.disableHomePC {
+    opacity: 0;
+    transition: 1.5s;
 }
 
-.logo-pc:hover{
-    content: url("/assets/images/logoPC_blanco.png");
+.homePC.enableHomePC {
+    opacity: 1;
+    transition: 2s ease;
 }
 
-.nav-pc ul {
-    color: white;
-    display: flex;
-    
+.card {
+    position: relative;
 }
 
-.nav-pc ul li {
-    list-style: none;
-    margin-right: 1rem;
-    color: #FF9800;
-    cursor: pointer;
-    /* font-weight: bold; */
-}
-
-.nav-pc ul li:hover {
-    color: white;
-    font-weight: bold;
-}
-
-.navActive {
-    transform: translateX(0);
-    transition: transform 3.5s ease;
-}
-
-.viewP {
-    height: 100vh;
+.card div {
+    position: absolute;
     width: 100%;
-    color: aliceblue;
-    font-size: 20px;
-    line-height: 1.5;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: 3s;
 
     display: flex;
     justify-content: center;
-    align-items: left;
-}
-
-.imgMain {
-    max-height: 100%;
-    width: auto;
-}
-
-.viewP .contInt {
-    width: 90%;
-    height: 90%;
-    padding: 20vh 5rem 0 5rem;
-    border-bottom: 1px solid #FF9800;
-
-    display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.contTexto {  
-    width: 40%;
-    /* margin-left: 3rem; */
+.card .frontAct {
+    transform: perspective(500px) rotateX(0deg);
 }
 
-.contInt h2 {
-    color: #FF9800;
-    text-align: center;
-    padding-bottom: 1rem;
+.card .backDes {
+    transform: perspective(500px) rotateX(180deg);
 }
 
-.contTexto p {
-    padding-bottom: 1rem;
-    text-align: justify;
+.card .frontDes {
+    transform: perspective(500px) rotateX(180deg);
 }
 
-@media screen and (max-width: 1280px) {
-    .viewP .contInt {
-        width: 100%;
-    }
+.card .backAct {
+    transform: perspective(500px) rotateX(360deg);
 }
 
-@media screen and (max-width: 1080px) {
-    .viewP {
-        height: auto;
-       
-    }
-
-    .viewP .contInt {
-        flex-direction: column;
-    }
-
-    .imgMain {
-        width: 80%;
-        height: auto;
-        margin-bottom: 3rem;
-    }
-
-    .contTexto {  
-        width: 80%; 
-        margin: 0;
-    }
-
-    .contTexto h2, .contTexto p {  
-        text-align: justify;
-    }
+.imgC1 {
+    width: 20rem;
+    margin-bottom: 1.2rem;
 }
 
-.viewDisable {
-    transform: translateX(-110%);
-    transition: transform 3.5s ease;
+.imgC2 {
+    width: 25rem;
 }
-
-.viewEnable {
-    transform: translateX(0);
-    transition: transform 3.5s ease;
-}
-
-#view2PC {
-    padding: 20vh 0 0 0;
-    background-color: aliceblue;
-    color: black;
-}
-

@@ -28,9 +28,9 @@ function initEventListeners() {
       omitirItro = $("<div>", {
         id: "container-mensaje"
       });
-    
+
       let p = $("<p>").text("Toque la pantalla para omitir el Intro.");
-    
+
       omitirItro.append(p);
       viewMain.append(omitirItro);
 
