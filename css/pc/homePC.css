@@ -27,7 +27,7 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    transition: 3s;
+    transition: 1.5s;
 
     display: flex;
     justify-content: center;

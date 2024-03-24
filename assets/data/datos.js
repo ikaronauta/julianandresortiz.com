@@ -143,7 +143,7 @@ export const dataViewsPC = {
     ],
   },
   view2: {
-    title: "Skills",
+    title: "Habilidades",
     items: [
       {
         id: 1,

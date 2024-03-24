@@ -49,8 +49,8 @@ function navPC() {
 function contentView1PC() {
   let view1 = createView("view1PC");
 
-  let contInt = $("<div>", {
-    class: "contInt",
+  let containerSection1 = $("<div>", {
+    class: "containerSection1",
   });
 
   let img = $("<img>", {
@@ -74,14 +74,42 @@ function contentView1PC() {
     contTexto.append($(item.etiqueta).text(item.texto));
   });
 
-  contInt.append(img);
-  contInt.append(contTexto);
-  view1.append(contInt);
+  containerSection1.append(img);
+  containerSection1.append(contTexto);
+  view1.append(containerSection1);
 
   return view1;
 }
 
 function contentView2PC() {
+  let view2 = createView("view2PC");
+
+  let containerSection2 = $("<div>", {
+    class: "containerSection2",
+  });
+
+  let containerSuperior = $("<div>", {
+    class: "containerSuperior",
+  });
+
+  let h2 = $("<h2>", {
+    text: dataViewsPC.view2.title,
+  });
+
+  let containerGrid = $("<div>", {
+    class: "containerGrid",
+  });
+
+  containerSuperior.append(h2); 
+  containerSection2.append(containerSuperior);
+  containerSection2.append(containerGrid);
+
+  view2.append(containerSection2);
+
+  return view2;
+}
+
+function contentView3PC() {
   let view2 = createView("view2PC");
 
   let h2 = $("<h2>", {
