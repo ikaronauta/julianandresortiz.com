@@ -2,6 +2,7 @@ import { dataEmail, dataViews } from "../../../assets/data/datos.js";
 import { createLouder, destroyLouder, alert1 } from "../../../core/main.js";
 
 // Variables
+let windowHeight = $(window).height();
 let countSkill = 0;
 let footerView3open = false;
 let skillsOpen = false;
@@ -105,7 +106,6 @@ function view3Container() {
 
 function listenersView1() {
   $(window).on("scroll", function () {
-    let windowHeight = $(window).height();
     let disparadorSkills = windowHeight * 0.35;
     let disparadorFooterVie3 = windowHeight * 0.35;
     let scrollTop = $(window).scrollTop();

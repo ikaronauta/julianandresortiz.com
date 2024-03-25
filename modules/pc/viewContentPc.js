@@ -3,10 +3,23 @@ import { dataViewsPC } from "../../assets/data/datos.js";
 // Constantes
 const root = $("#root");
 
+// Variables
+let windowHeight = $(window).height();
+let skillsPCOpen = false;
+let countSkillsPc = 0;
+
+//TimeOuts/Itervals
+let mostrarSkillsPC, ocultarSkills;
+
 export function viewContentPC() {
+  // root.addClass('scrollDisabled ');
   root.append(navPC());
   root.append(contentView1PC().addClass("viewDisable"));
   root.append(contentView2PC());
+
+  // setTimeout(() => {
+  //   root.toggleClass('scrollDisabled scrollEnabled');
+  // }, 3000);
 
   listenersPC();
 }
@@ -15,6 +28,29 @@ function listenersPC() {
   $(document).ready(function () {
     $("#nav-pc").addClass("navActive");
     $("#view1PC").toggleClass("viewDisable viewEnable");
+  });
+
+  $(window).on("scroll", function(){
+    let disparadorSkills = windowHeight * 0.35;
+    let scrollTop = $(window).scrollTop();
+
+    let view2Top = $("#view2PC").offset().top;
+    let diferenciaView2TopScrollTopPixeles = view2Top - scrollTop;
+
+    if (diferenciaView2TopScrollTopPixeles < disparadorSkills && !skillsPCOpen) {
+      skillsPCOpen = true;      
+
+      mostrarSkillsPC = setInterval(() => {
+        if(countSkillsPc <= $('.card-grid-pc').length){
+          $($('.card-grid-pc')[countSkillsPc]).addClass('active-pc');
+          countSkillsPc++
+        } else {
+          countSkillsPc = 0;
+          clearInterval(mostrarSkillsPC);
+        }
+      }, 500);
+    }
+
   });
 }
 
@@ -82,6 +118,8 @@ function contentView1PC() {
 }
 
 function contentView2PC() {
+  let count = 0;
+
   let view2 = createView("view2PC");
 
   let containerSection2 = $("<div>", {
@@ -92,6 +130,10 @@ function contentView2PC() {
     class: "containerSuperior",
   });
 
+  let containerLeft = $("<div>", {
+    class: "containerLeft",
+  });
+
   let h2 = $("<h2>", {
     text: dataViewsPC.view2.title,
   });
@@ -100,8 +142,18 @@ function contentView2PC() {
     class: "containerGrid",
   });
 
-  containerSuperior.append(h2); 
+  containerLeft.append(h2);
+  containerSuperior.append(containerLeft); 
   containerSection2.append(containerSuperior);
+
+  dataViewsPC.view2.items.forEach(function(item){
+    let position = count % 2 == 0 ? "left-pc" : "right-pc";
+
+    count++;
+
+    containerGrid.append(addCardGrid(item, position));
+  });
+
   containerSection2.append(containerGrid);
 
   view2.append(containerSection2);
@@ -139,4 +191,44 @@ function createView(idView) {
     id: idView,
     class: "viewP",
   });
+}
+
+function addCardGrid(dataCard, position){
+  let card = $("<div>", {
+    class: `card-grid-pc ${position}`
+  });
+
+  let left = $("<div>", {
+    class: "left-card-grid-pc"
+  });
+
+  let img = $("<img>", {
+    src: `assets/images/${dataCard.logo}`,
+    class: "iconSkill-pc",
+    alt: dataCard.title
+  })
+
+  let title = $("<h3>", {
+    text: dataCard.title
+  });
+
+  let cotainerNivel = $("<div>", {
+    class: "cotainerNivel-pc"
+  });
+
+  let nivel = $("<div>", {
+    class: "nivel-pc",
+  });
+
+  nivel.css("width", dataCard.nivel);
+
+  left.append(img);
+  left.append(title);
+
+  cotainerNivel.append(nivel);
+
+  card.append(left);
+  card.append(cotainerNivel);
+
+  return card;
 }
