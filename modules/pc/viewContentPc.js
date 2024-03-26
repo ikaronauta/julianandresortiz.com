@@ -3,23 +3,15 @@ import { dataViewsPC } from "../../assets/data/datos.js";
 // Constantes
 const root = $("#root");
 
-// Variables
-let windowHeight = $(window).height();
-let skillsPCOpen = false;
-let countSkillsPc = 0;
-
-//TimeOuts/Itervals
-let mostrarSkillsPC, ocultarSkills;
-
 export function viewContentPC() {
-  // root.addClass('scrollDisabled ');
+  root.addClass('scrollDisabled ');
   root.append(navPC());
   root.append(contentView1PC().addClass("viewDisable"));
   root.append(contentView2PC());
 
-  // setTimeout(() => {
-  //   root.toggleClass('scrollDisabled scrollEnabled');
-  // }, 3000);
+  setTimeout(() => {
+    root.removeClass('scrollDisabled');
+  }, 3000);
 
   listenersPC();
 }
