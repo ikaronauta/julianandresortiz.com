@@ -12,13 +12,13 @@ let countSkillsPc = 0;
 let mostrarSkillsPC;
 
 export function viewContentPC() {
-  root.addClass('scrollDisabled ');
+  root.addClass("scrollDisabled ");
   root.append(navPC());
   root.append(contentView1PC().addClass("viewDisable"));
   root.append(contentView2PC());
 
   setTimeout(() => {
-    root.removeClass('scrollDisabled');
+    root.removeClass("scrollDisabled");
   }, 3000);
 
   listenersPC();
@@ -30,27 +30,29 @@ function listenersPC() {
     $("#view1PC").toggleClass("viewDisable viewEnable");
   });
 
-  $(window).on("scroll", function(){
+  $(window).on("scroll", function () {
     let disparadorSkills = windowHeight * 0.35;
     let scrollTop = $(window).scrollTop();
 
     let view2Top = $("#view2PC").offset().top;
     let diferenciaView2TopScrollTopPixeles = view2Top - scrollTop;
 
-    if (diferenciaView2TopScrollTopPixeles < disparadorSkills && !skillsPCOpen) {
-      skillsPCOpen = true;      
+    if (
+      diferenciaView2TopScrollTopPixeles < disparadorSkills &&
+      !skillsPCOpen
+    ) {
+      skillsPCOpen = true;
 
       mostrarSkillsPC = setInterval(() => {
-        if(countSkillsPc <= $('.card-grid-pc').length){
-          $($('.card-grid-pc')[countSkillsPc]).addClass('active-pc');
-          countSkillsPc++
+        if (countSkillsPc <= $(".card-grid-pc").length) {
+          $($(".card-grid-pc")[countSkillsPc]).addClass("active-pc");
+          countSkillsPc++;
         } else {
           countSkillsPc = 0;
           clearInterval(mostrarSkillsPC);
         }
       }, 500);
     }
-
   });
 }
 
@@ -143,10 +145,10 @@ function contentView2PC() {
   });
 
   containerLeft.append(h2);
-  containerSuperior.append(containerLeft); 
+  containerSuperior.append(containerLeft);
   containerSection2.append(containerSuperior);
 
-  dataViewsPC.view2.items.forEach(function(item){
+  dataViewsPC.view2.items.forEach(function (item) {
     let position = count % 2 == 0 ? "left-pc" : "right-pc";
 
     count++;
@@ -193,27 +195,27 @@ function createView(idView) {
   });
 }
 
-function addCardGrid(dataCard, position){
+function addCardGrid(dataCard, position) {
   let card = $("<div>", {
-    class: `card-grid-pc ${position}`
+    class: `card-grid-pc ${position}`,
   });
 
   let left = $("<div>", {
-    class: "left-card-grid-pc"
+    class: "left-card-grid-pc",
   });
 
   let img = $("<img>", {
     src: `assets/images/${dataCard.logo}`,
     class: "iconSkill-pc",
-    alt: dataCard.title
-  })
+    alt: dataCard.title,
+  });
 
   let title = $("<h3>", {
-    text: dataCard.title
+    text: dataCard.title,
   });
 
   let cotainerNivel = $("<div>", {
-    class: "cotainerNivel-pc"
+    class: "cotainerNivel-pc",
   });
 
   let nivel = $("<div>", {

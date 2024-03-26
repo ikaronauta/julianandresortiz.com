@@ -1,3 +1,4 @@
+import { dataEmail } from "./assets/data/datos.js";
 import { homeMovile } from "./modules/homeMovile.js";
 import { homePC } from "./modules/homePC.js";
 

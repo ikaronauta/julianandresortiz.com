@@ -26,7 +26,7 @@ function initEventListeners() {
   $(window).on("load", function () {
     setTimeout(() => {
       omitirItro = $("<div>", {
-        id: "container-mensaje"
+        id: "container-mensaje",
       });
 
       let p = $("<p>").text("Toque la pantalla para omitir el Intro.");
@@ -114,7 +114,7 @@ function contadorInicio() {
       count--;
       $("#contador").text(count);
 
-      if(count == 1) $("#container-mensaje").toggleClass("mostrar ocultar");
+      if (count == 1) $("#container-mensaje").toggleClass("mostrar ocultar");
 
       if (count == -1) {
         clearInterval(interContador);
