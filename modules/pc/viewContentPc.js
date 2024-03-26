@@ -3,6 +3,14 @@ import { dataViewsPC } from "../../assets/data/datos.js";
 // Constantes
 const root = $("#root");
 
+// Variables
+let windowHeight = $(window).height();
+let skillsPCOpen = false;
+let countSkillsPc = 0;
+
+//TimeOuts/Itervals
+let mostrarSkillsPC;
+
 export function viewContentPC() {
   root.addClass('scrollDisabled ');
   root.append(navPC());
