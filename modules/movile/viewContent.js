@@ -11,8 +11,6 @@ let skillsOpen = false;
 let mostrarSkill, ocultarSkills;
 
 export function viewContent() {
-  emailjs.init(dataEmail.dataInit);
-  
   $("#root").append(view1Container());
   $("#root").append(view2Container());
   $("#root").append(view3Container());
@@ -39,10 +37,12 @@ function view1Container() {
   view1.append(subTitle(dataViews.view1.title));
   view1.append($("<hr>"));
 
-  dataViews.view1.items.forEach(function(item){
-    view1.append($(item.etiqueta, {
-      text: item.texto,
-    }));
+  dataViews.view1.items.forEach(function (item) {
+    view1.append(
+      $(item.etiqueta, {
+        text: item.texto,
+      })
+    );
   });
 
   return view1;
@@ -54,27 +54,27 @@ function view2Container() {
   view2.append(subTitle(dataViews.view2.title));
   view2.append($("<hr>"));
 
-  dataViews.view2.items.forEach(function(skill){
+  dataViews.view2.items.forEach(function (skill) {
     let container = $("<div>", {
-      class: "container-skill disable"
+      class: "container-skill disable",
     });
 
     let left = $("<div>", {
-      class: "left"
+      class: "left",
     });
 
     let img = $("<img>", {
       src: `assets/images/${skill.logo}`,
       class: "iconSkill",
-      alt: skill.title
-    })
+      alt: skill.title,
+    });
 
     let title = $("<h3>", {
-      text: skill.title
+      text: skill.title,
     });
 
     let cotainerNivel = $("<div>", {
-      class: "cotainerNivel"
+      class: "cotainerNivel",
     });
 
     let nivel = $("<div>", {
@@ -119,10 +119,10 @@ function listenersView1() {
       skillsOpen = true;
 
       mostrarSkill = setInterval(() => {
-        if(countSkill <= $('.container-skill').length){
-          $($('.container-skill')[countSkill]).removeClass('disable');
-          $($('.container-skill')[countSkill]).addClass('enable');
-          countSkill++
+        if (countSkill <= $(".container-skill").length) {
+          $($(".container-skill")[countSkill]).removeClass("disable");
+          $($(".container-skill")[countSkill]).addClass("enable");
+          countSkill++;
         } else {
           countSkill = 0;
           clearInterval(mostrarSkill);
@@ -135,22 +135,27 @@ function listenersView1() {
       countSkill = 0;
       clearInterval(mostrarSkill);
 
-      $('.container-skill').each(function(){
-        $(this).removeClass('enable');
-        $(this).addClass('disable');
+      $(".container-skill").each(function () {
+        $(this).removeClass("enable");
+        $(this).addClass("disable");
       });
     }
 
-
-    if(diferenciaView3TopScrollTopPixeles < disparadorFooterVie3 && !footerView3open){
+    if (
+      diferenciaView3TopScrollTopPixeles < disparadorFooterVie3 &&
+      !footerView3open
+    ) {
       $("#footerView3").removeClass("disableFooterView3");
-        $("#footerView3").addClass("enableFooterView3");
-        footerView3open = true;
+      $("#footerView3").addClass("enableFooterView3");
+      footerView3open = true;
     }
 
-    if(diferenciaView3TopScrollTopPixeles > disparadorFooterVie3 && footerView3open){
+    if (
+      diferenciaView3TopScrollTopPixeles > disparadorFooterVie3 &&
+      footerView3open
+    ) {
       $("#footerView3").removeClass("enableFooterView3");
-      $("#footerView3").addClass("disableFooterView3"); 
+      $("#footerView3").addClass("disableFooterView3");
       footerView3open = false;
     }
   });
@@ -160,50 +165,60 @@ function listenersView1() {
 
     createLouder();
 
-    emailjs.send(dataEmail.serviceID, dataEmail.templateID, {
-      user_name: $(this.user_name).val() == "" ? "Sin Nombre" : $(this.user_name).val(),
-      user_email: $(this.user_email).val(),
-      message: $(this.message).val(),
-    }).then(() => {
-      destroyLouder();
-      $(this.user_name).val("");
-      $(this.user_email).val("");
-      $(this.message).val("");
-      alert1("Mensaje enviado con exito !!!.", "mensaje-enviado.gif");
-    }, (error) => {
-
-      destroyLouder();
-      alert1("Mensaje no enviado, intentelo nuevamente.", "mensaje-no-enviado.gif");
-      console.log(error.text)
-    });
+    emailjs
+      .send(dataEmail.serviceID, dataEmail.templateID, {
+        user_name:
+          $(this.user_name).val() == ""
+            ? "Sin Nombre"
+            : $(this.user_name).val(),
+        user_email: $(this.user_email).val(),
+        message: $(this.message).val(),
+      })
+      .then(
+        () => {
+          destroyLouder();
+          $(this.user_name).val("");
+          $(this.user_email).val("");
+          $(this.message).val("");
+          alert1("Mensaje enviado con exito !!!.", "mensaje-enviado.gif");
+        },
+        (error) => {
+          destroyLouder();
+          alert1(
+            "Mensaje no enviado, intentelo nuevamente.",
+            "mensaje-no-enviado.gif"
+          );
+          console.log(error.text);
+        }
+      );
   });
 }
 
-function createView(idView){
+function createView(idView) {
   return $("<div>", {
     id: idView,
     class: "viewN",
   });
 }
 
-function subTitle(title){
+function subTitle(title) {
   return $("<h2>", {
     text: title,
   });
 }
 
-function footerView3(){
+function footerView3() {
   let footer = $("<footer>", {
     id: "footerView3",
     class: "disableFooterView3",
   });
 
-  dataViews.view3.items.forEach(function(item){
+  dataViews.view3.items.forEach(function (item) {
     let a = $("<a>", {
       href: item.href,
     });
 
-    if(item.title != "Email" && item.title != "Whatsapp"){
+    if (item.title != "Email" && item.title != "Whatsapp") {
       a.attr("target", "_blank");
       a.attr("rel", "noopener noreferrer");
     }
@@ -220,16 +235,16 @@ function footerView3(){
   return footer;
 }
 
-function createForm(){
+function createForm() {
   let form = $("<form>", {
     id: "form-concact",
-    class: "form"
+    class: "form",
   });
 
   let labelName = $("<label>", {
     class: "label-form",
     text: "Nombre",
-    for: "name"
+    for: "name",
   });
 
   let inputName = $("<input>", {
@@ -237,8 +252,8 @@ function createForm(){
     type: "text",
     name: "user_name",
     class: "input-form",
-    placeholder: "Nombre"
-  }) 
+    placeholder: "Nombre",
+  });
 
   let section1 = $("<div>", {
     class: "section-form",
@@ -250,7 +265,7 @@ function createForm(){
   let labelEmail = $("<label>", {
     class: "label-form",
     text: "Email *",
-    for: "email"
+    for: "email",
   });
 
   let inputEmail = $("<input>", {
