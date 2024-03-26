@@ -12,14 +12,14 @@ let countSkillsPc = 0;
 let mostrarSkillsPC, ocultarSkills;
 
 export function viewContentPC() {
-  // root.addClass('scrollDisabled ');
+  root.addClass('scrollDisabled ');
   root.append(navPC());
   root.append(contentView1PC().addClass("viewDisable"));
   root.append(contentView2PC());
 
-  // setTimeout(() => {
-  //   root.toggleClass('scrollDisabled scrollEnabled');
-  // }, 3000);
+  setTimeout(() => {
+    root.removeClass('scrollDisabled');
+  }, 3000);
 
   listenersPC();
 }
