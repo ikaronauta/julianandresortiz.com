@@ -7,6 +7,7 @@ const root = $("#root");
 // Variables
 let windowHeight = $(window).height();
 let skillsPCOpen = false;
+let QRview3open = false;
 let countSkillsPc = 0;
 
 //TimeOuts/Itervals
@@ -34,10 +35,16 @@ function listenersPC() {
 
   $(window).on("scroll", function () {
     let disparadorSkills = windowHeight * 0.35;
+    let disparadorQR = windowHeight * 0.35;
     let scrollTop = $(window).scrollTop();
 
     let view2Top = $("#view2PC").offset().top;
     let diferenciaView2TopScrollTopPixeles = view2Top - scrollTop;
+
+    let view3Top = $("#view3PC").offset().top;
+    let diferenciaView3TopScrollTopPixeles = view3Top - scrollTop;
+
+    //console.log(`scrollTop: ${scrollTop} - view3Top: ${view3Top} - diferencia: ${diferenciaView3TopScrollTopPixeles}`);
 
     if (
       diferenciaView2TopScrollTopPixeles < disparadorSkills &&
@@ -54,6 +61,15 @@ function listenersPC() {
           clearInterval(mostrarSkillsPC);
         }
       }, 500);
+    }
+
+    if (
+      diferenciaView3TopScrollTopPixeles < disparadorQR && !QRview3open
+    ){
+      setTimeout(() => {
+        $('.imgQR').addClass('imgQRActive');
+        QRview3open = true;
+      }, 700);
     }
   });
 }

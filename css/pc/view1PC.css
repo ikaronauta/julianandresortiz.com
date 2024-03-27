@@ -332,7 +332,7 @@
 
     box-shadow: rgba(255, 152, 0, 0.4) 5px 5px, rgba(202, 121, 0, 0.3) 10px 10px, rgba(161, 97, 0, 0.2) 15px 15px, rgba(133, 80, 0, 0.1) 20px 20px, rgba(94, 56, 0, 0.05) 25px 25px;
 
-    transform: translateY(-300%);
+    transform: translateY(-1000%);
 }
 
 .containerSection3 .containerInterior .containerQR .textQR {
@@ -413,5 +413,20 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .containerSection3 .containerInterior {
+        height: auto;
+
+        align-items: center;
+        flex-direction: column  ;
+    }
+
+    .containerSection3 .containerInterior #form-concact-pc, 
+    .containerSection3 .containerInterior .containerQR  {
+        width: 60%;
+        height: 20em;
+
+        margin: 1em;
     }
 }
