@@ -8,6 +8,7 @@ const root = $("#root");
 let windowHeight = $(window).height();
 let skillsPCOpen = false;
 let QRview3open = false;
+let snLeftOpen = false;
 let countSkillsPc = 0;
 
 //TimeOuts/Itervals
@@ -16,6 +17,8 @@ let mostrarSkillsPC;
 export function viewContentPC() {
   root.addClass("scrollDisabled ");
   root.append(navPC());
+  root.append(createSectionSocialNetworksPC("snPCleft ocultarLeft"));
+  root.append(createSectionSocialNetworksPC("snPCrigth ocultarRigth"));
   root.append(contentView1PC().addClass("viewDisable"));
   root.append(contentView2PC());
   root.append(contentView3PC());
@@ -31,11 +34,15 @@ function listenersPC() {
   $(document).ready(function () {
     $("#nav-pc").addClass("navActive");
     $("#view1PC").toggleClass("viewDisable viewEnable");
+    $('.snPCleft').toggleClass('mostrarLeft ocultarLeft');
+    snLeftOpen = true;
   });
 
   $(window).on("scroll", function () {
     let disparadorSkills = windowHeight * 0.35;
     let disparadorQR = windowHeight * 0.35;
+    let disparador1SNleft = windowHeight * 0.40;
+    let disparador2SNleft = windowHeight * 0.99;
     let scrollTop = $(window).scrollTop();
 
     let view2Top = $("#view2PC").offset().top;
@@ -71,6 +78,40 @@ function listenersPC() {
         QRview3open = true;
       }, 700);
     }
+
+    
+    let countOcultar = 0;
+    let countMostrar = 0;
+    if (diferenciaView2TopScrollTopPixeles <= disparador1SNleft 
+    ) {
+      countOcultar++;
+      if (countOcultar < 2) {
+        console.log("Ocultar");
+        $('.snPCleft').removeClass('mostrarLeft');
+        $('.snPCleft').addClass('ocultarLeft');
+
+        $('.snPCrigth').removeClass('ocultarRigth');
+        $('.snPCrigth').addClass('mostrarRigth');
+      }
+    } else {
+      console.log(`disparador1SNleft: ${disparador1SNleft} \ndisparador2SNleft: ${disparador2SNleft} \ndiferenciaView2TopScrollTopPixeles: ${diferenciaView2TopScrollTopPixeles}`);
+      countMostrar++;
+      // if (countMostrar < 2) {
+      //   console.log("Mostrat");
+      //   $('.snPCleft').removeClass('ocultarLeft');
+      //   $('.snPCleft').addClass('mostrarLeft');
+      // }
+    }
+
+    // if(diferenciaView2TopScrollTopPixeles < disparadorSNleft && snLeftOpen){
+    //   $('.snPCleft').removeClass('mostrarLeft');
+    //   $('.snPCleft').addClass('ocultarLeft');
+    //   snLeftOpen = false;
+    // } else {
+    //   $('.snPCleft').removeClass('ocultarLeft');
+    //   $('.snPCleft').addClass('mostrarLeft');
+    //   snLeftOpen = true;
+    // }
   });
 }
 
@@ -278,4 +319,32 @@ function addCardGrid(dataCard, position) {
   card.append(cotainerNivel);
 
   return card;
+}
+
+function createSectionSocialNetworksPC(clase){
+  let containerSocialNetworksPC = $("<div>", {
+    class: `containerSocialNetworks ${clase}`,
+  });
+
+  dataViewsPC.view3.items.forEach(function (item) {
+    let a = $("<a>", {
+      href: item.href,
+    });
+
+    if (item.title != "Email" && item.title != "Whatsapp") {
+      a.attr("target", "_blank");
+      a.attr("rel", "noopener noreferrer");
+    }
+
+    let img = $("<img>", {
+      class: "red-social",
+      src: `assets/images/${clase.includes("snPCrigth") ? item.logo.replace(".", "_naranja.") : item.logo}`,
+    });
+
+    a.append(img);
+    containerSocialNetworksPC.append(a);
+  });
+
+
+  return containerSocialNetworksPC;
 }

@@ -344,6 +344,62 @@
     /* Agrega la animación de caída */
 }
 
+.snPCleft {
+    z-index: 9999;
+    width: auto;
+    height: 15em;
+    border-radius: 0 10px 10px 0;
+    background-color: #FF9800;
+    padding: 0.3em;
+
+    position: fixed;
+    top: 50%;   
+    
+    transform: translate(0, -50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.snPCleft.mostrarLeft {
+    left: 0;
+    transition: left 3s ease;
+}
+
+.snPCleft.ocultarLeft {
+    left: -150%;
+    transition: left 3s ease;
+}
+
+.snPCrigth {
+    z-index: 9999;
+    width: auto;
+    height: 15em;
+    border-radius: 10px 0 0 10px;
+    background-color: black;
+    padding: 0.3em;
+
+    position: fixed;
+    top: 50%;  
+    
+    transform: translate(0, -50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.snPCrigth.mostrarRigth {
+    right: 0; 
+    transition: right 0.5s ease;
+}
+
+.snPCrigth.ocultarRigth {
+    right: -100%; 
+    transition: right 0.5s ease;
+}
+
 @keyframes fallAndBounce {
     0% {
         transform: translateY(-100%) rotate(40deg);
