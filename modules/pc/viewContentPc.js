@@ -1,4 +1,5 @@
 import { dataViewsPC } from "../../assets/data/datos.js";
+import { createForm } from "../../core/main.js";
 
 // Constantes
 const root = $("#root");
@@ -16,6 +17,7 @@ export function viewContentPC() {
   root.append(navPC());
   root.append(contentView1PC().addClass("viewDisable"));
   root.append(contentView2PC());
+  root.append(contentView3PC());
 
   setTimeout(() => {
     root.removeClass("scrollDisabled");
@@ -164,28 +166,55 @@ function contentView2PC() {
 }
 
 function contentView3PC() {
-  let view2 = createView("view2PC");
+  let view3 = createView("view3PC");
 
-  let h2 = $("<h2>", {
-    text: dataViewsPC.view2.title,
+  let containerSection3 = $("<div>", {
+    class: "containerSection3",
   });
 
-  let containerImg = $("<div>", {
-    class: "containerImg",
+  let containerSuperior = $("<div>", {
+    class: "containerSuperior",
+  });
+
+  let containerRigth = $("<div>", {
+    class: "containerRigth",
+  });
+
+  let h2 = $("<h2>", {
+    text: dataViewsPC.view3.title,
+  });
+
+  let containerInterior = $("<div>", {
+    class: "containerInterior",
+  });
+
+  let containerQR = $("<div>", {
+    class: "containerQR",
   });
 
   let img = $("<img>", {
-    class: "onConstruction",
-    alt: "",
-    src: "assets/images/onConstruction.png",
+    class: "imgQR",
+    alt: "QR",
+    src: "assets/images/qr.png",
   });
 
-  containerImg.append(img);
+  let small = $("<div>", {
+    class: "textQR",
+    text: "* Puedes escanear el siguiente código QR y visualizar el contenido desde tu smarthphone.",
+  });
 
-  // view2.append(h2);
-  view2.append(containerImg);
+  containerRigth.append(h2);
+  containerSuperior.append(containerRigth);
+  containerInterior.append(createForm("form-concact-pc"));
+  containerQR.append(img);
+  containerQR.append(small);
+  containerInterior.append(containerQR);
+  containerSection3.append(containerSuperior);
+  containerSection3.append(containerInterior);
 
-  return view2;
+  view3.append(containerSection3);
+
+  return view3;
 }
 
 function createView(idView) {
