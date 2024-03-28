@@ -353,8 +353,9 @@
     padding: 0.3em;
 
     position: fixed;
-    top: 50%;   
-    
+    top: 50%;
+    left: -150%;
+
     transform: translate(0, -50%);
 
     display: flex;
@@ -364,12 +365,12 @@
 
 .snPCleft.mostrarLeft {
     left: 0;
-    transition: left 3s ease;
+    transition: left 1s ease;
 }
 
 .snPCleft.ocultarLeft {
     left: -150%;
-    transition: left 3s ease;
+    transition: left 1s ease;
 }
 
 .snPCrigth {
@@ -381,8 +382,8 @@
     padding: 0.3em;
 
     position: fixed;
-    top: 50%;  
-    
+    top: 50%;
+
     transform: translate(0, -50%);
 
     display: flex;
@@ -391,13 +392,13 @@
 }
 
 .snPCrigth.mostrarRigth {
-    right: 0; 
-    transition: right 0.5s ease;
+    right: 0;
+    transition: right 1s ease;
 }
 
 .snPCrigth.ocultarRigth {
-    right: -100%; 
-    transition: right 0.5s ease;
+    right: -100%;
+    transition: right 1s ease;
 }
 
 @keyframes fallAndBounce {
@@ -475,11 +476,11 @@
         height: auto;
 
         align-items: center;
-        flex-direction: column  ;
+        flex-direction: column;
     }
 
-    .containerSection3 .containerInterior #form-concact-pc, 
-    .containerSection3 .containerInterior .containerQR  {
+    .containerSection3 .containerInterior #form-concact-pc,
+    .containerSection3 .containerInterior .containerQR {
         width: 60%;
         height: 20em;
 
