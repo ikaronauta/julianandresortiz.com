@@ -1,6 +1,6 @@
-import { dataEmail, dataViews } from "../../../assets/data/datos.js";
-import { createLouder, destroyLouder, alert1 } from "../../../core/main.js";
-import { createForm } from "../../core/main.js";
+import { dataViews } from "../../../assets/data/datos.js";
+// import { createLouder, destroyLouder, alert1 } from "../../../core/main.js";
+import { createForm, sendMessage } from "../../core/main.js";
 
 // Variables
 let windowHeight = $(window).height();
@@ -163,35 +163,7 @@ function listenersView1() {
 
   $("#form-concact").on("submit", function (e) {
     e.preventDefault();
-
-    createLouder();
-
-    emailjs
-      .send(dataEmail.serviceID, dataEmail.templateID, {
-        user_name:
-          $(this.user_name).val() == ""
-            ? "Sin Nombre"
-            : $(this.user_name).val(),
-        user_email: $(this.user_email).val(),
-        message: $(this.message).val(),
-      })
-      .then(
-        () => {
-          destroyLouder();
-          $(this.user_name).val("");
-          $(this.user_email).val("");
-          $(this.message).val("");
-          alert1("Mensaje enviado con exito !!!.", "mensaje-enviado.gif");
-        },
-        (error) => {
-          destroyLouder();
-          alert1(
-            "Mensaje no enviado, intentelo nuevamente.",
-            "mensaje-no-enviado.gif"
-          );
-          console.log(error.text);
-        }
-      );
+    sendMessage(this);
   });
 }
 

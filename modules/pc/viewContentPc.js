@@ -1,8 +1,5 @@
 import { dataViewsPC } from "../../assets/data/datos.js";
-import { createForm } from "../../core/main.js";
-
-var countMostrarSocialNetWorkVista3 = 0;
-var countMostrarSocialNetWorkVista2 = 0;
+import { createForm, sendMessage } from "../../core/main.js";
 
 // Constantes
 const root = $("#root");
@@ -123,6 +120,11 @@ function listenersPC() {
       SocialNetWorkRigthOpen = true;
       SocialNetWorkLeftOpen = false;
     }
+  });
+
+  $("#form-concact-pc").on("submit", function (e) {
+    e.preventDefault();
+    sendMessage(this);
   });
 }
 

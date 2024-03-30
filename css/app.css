@@ -166,3 +166,7 @@ body {
 .textarea-form {
     padding: 0.5rem;
 }
+
+.button-form, .button-alert{
+    cursor: pointer;
+}

@@ -1,3 +1,5 @@
+import { dataEmail } from "../assets/data/datos.js"
+
 export function createLouder() {
   $("#root").append(
     $("<div>", {
@@ -147,4 +149,35 @@ export function createForm(idForm) {
   form.append(section4);
 
   return form;
+}
+
+export function sendMessage(dataForm){
+  createLouder();
+
+  emailjs
+    .send(dataEmail.serviceID, dataEmail.templateID, {
+      user_name:
+        $(dataForm.user_name).val() == ""
+          ? "Sin Nombre"
+          : $(dataForm.user_name).val(),
+      user_email: $(dataForm.user_email).val(),
+      message: $(dataForm.message).val(),
+    })
+    .then(
+      () => {
+        destroyLouder();
+        $(dataForm.user_name).val("");
+        $(dataForm.user_email).val("");
+        $(dataForm.message).val("");
+        alert1("Mensaje enviado con exito !!!.", "mensaje-enviado.gif");
+      },
+      (error) => {
+        destroyLouder();
+        alert1(
+          "Mensaje no enviado, intentelo nuevamente.",
+          "mensaje-no-enviado.gif"
+        );
+        console.log(error.text);
+      }
+    );
 }
