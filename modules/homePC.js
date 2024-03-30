@@ -68,6 +68,24 @@ function initEventListenersPC() {
   $(window).on("load", function () {
     let count = 0;
 
+    $("#mainPC").toggleClass("enableHomePC disableHomePC");
+
+    setTimeout(() => {
+      $("#img1").toggleClass("frontAct frontDes");
+      $("#img2").toggleClass("backDes backAct");
+
+      setTimeout(() => {
+        $("#mainPC").toggleClass("enableHomePC disableHomePC");
+        setTimeout(() => {
+          root.empty();
+          viewContentPC();
+        }, 500);
+
+      }, 1500);
+    }, 1500);    
+
+    return;
+
     setTimeout(() => {
       $("#mainPC").toggleClass("enableHomePC disableHomePC");
 
@@ -76,7 +94,7 @@ function initEventListenersPC() {
         $("#img1").toggleClass("frontAct frontDes");
         $("#img2").toggleClass("backDes backAct");
 
-        if (count > 2) {
+        if (count > 1) {
           clearInterval(mainTimeout);
           $("#mainPC").toggleClass("enableHomePC disableHomePC");
           setTimeout(() => {

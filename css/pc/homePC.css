@@ -10,7 +10,7 @@
 
 .homePC.disableHomePC {
     opacity: 0;
-    transition: 1.5s;
+    transition: 0.5s;
 }
 
 .homePC.enableHomePC {
