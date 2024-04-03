@@ -48,6 +48,11 @@
     font-weight: bold;
 }
 
+.li-active {
+    color: white !important;
+    font-weight: bold;
+}
+
 .navActive {
     transform: translateX(0);
     transition: transform 3.5s ease;

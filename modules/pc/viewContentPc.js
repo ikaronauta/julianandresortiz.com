@@ -24,6 +24,8 @@ export function viewContentPC() {
   root.append(contentView2PC());
   root.append(contentView3PC());
 
+  $('ul li:first-child').addClass('li-active');
+
   setTimeout(() => {
     root.removeClass("scrollDisabled");
   }, 3000);
@@ -89,7 +91,7 @@ function listenersPC() {
       $('.snPCleft').removeClass('ocultarLeft');
       $('.snPCleft').addClass('mostrarLeft');
 
-      console.log("Mostrar socialNetWork de la Izquierda");
+      //console.log("Mostrar socialNetWork de la Izquierda");
       $('.snPCrigth').removeClass('mostrarRigth');
       $('.snPCrigth').addClass('ocultarRigth');
 
@@ -109,17 +111,27 @@ function listenersPC() {
     }
 
     if (diferenciaView3TopScrollTopPixeles <= disparadorPrueba && !SocialNetWorkRigthOpen) {
-      console.log("Ocultar socialNetWork Vista 2");
+      //console.log("Ocultar socialNetWork Vista 2");
       $('.snPCleft').removeClass('ocultarLeft');
       $('.snPCleft').addClass('mostrarLeft');
 
-      console.log("Mostrar socialNetWork Vista 3");
+      //console.log("Mostrar socialNetWork Vista 3");
       $('.snPCrigth').removeClass('mostrarRigth');
       $('.snPCrigth').addClass('ocultarRigth');
 
       SocialNetWorkRigthOpen = true;
       SocialNetWorkLeftOpen = false;
     }
+
+    $('.viewP').each(function(){
+      let target = $(this).offset().top;
+      let id = $(this).attr('id');
+
+      if (target <= scrollTop + window.innerHeight - 0.2 * window.innerHeight && target + $(this).outerHeight() > scrollTop + 0.2 * window.innerHeight) {
+        $('nav ul li').removeClass('li-active');
+        $(`nav ul li[id=li-${id}]`).addClass('li-active');
+      }
+    });
   });
 
   $("#form-concact-pc").on("submit", function (e) {
@@ -141,10 +153,13 @@ function navPC() {
   });
 
   let ul = $("<ul>");
+  let countLi = 0;
 
   for (const view in dataViewsPC) {
+    countLi++;
     ul.append(
       $("<li>", {
+        id: `li-view${countLi}PC`,
         text: dataViewsPC[view].title,
       })
     );
