@@ -35,10 +35,10 @@ function view1Container() {
   });
 
   view1.append(logo);
-  view1.append(subTitle(dataViews.view1.title));
+  view1.append(subTitle(dataViews.es.view1.title));
   view1.append($("<hr>"));
 
-  dataViews.view1.items.forEach(function (item) {
+  dataViews.es.view1.items.forEach(function (item) {
     view1.append(
       $(item.etiqueta, {
         text: item.texto,
@@ -52,10 +52,10 @@ function view1Container() {
 function view2Container() {
   let view2 = createView("view2");
 
-  view2.append(subTitle(dataViews.view2.title));
+  view2.append(subTitle(dataViews.es.view2.title));
   view2.append($("<hr>"));
 
-  dataViews.view2.items.forEach(function (skill) {
+  dataViews.es.view2.items.forEach(function (skill) {
     let container = $("<div>", {
       class: "container-skill disable",
     });
@@ -98,7 +98,7 @@ function view2Container() {
 function view3Container() {
   let view3 = createView("view3");
 
-  view3.append(subTitle(dataViews.view3.title));
+  view3.append(subTitle(dataViews.es.view3.title));
   view3.append($("<hr>"));
   view3.append(createForm("form-concact"));
 
@@ -186,7 +186,7 @@ function footerView3() {
     class: "disableFooterView3",
   });
 
-  dataViews.view3.items.forEach(function (item) {
+  dataViews.es.view3.items.forEach(function (item) {
     let a = $("<a>", {
       href: item.href,
     });

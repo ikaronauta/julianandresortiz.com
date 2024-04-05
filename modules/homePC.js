@@ -82,27 +82,6 @@ function initEventListenersPC() {
         }, 500);
 
       }, 1500);
-    }, 1500);    
-
-    return;
-
-    setTimeout(() => {
-      $("#mainPC").toggleClass("enableHomePC disableHomePC");
-
-      mainTimeout = setInterval(() => {
-        count++;
-        $("#img1").toggleClass("frontAct frontDes");
-        $("#img2").toggleClass("backDes backAct");
-
-        if (count > 1) {
-          clearInterval(mainTimeout);
-          $("#mainPC").toggleClass("enableHomePC disableHomePC");
-          setTimeout(() => {
-            root.empty();
-            viewContentPC();
-          }, 1000);
-        }
-      }, 1000);
-    }, 100);
+    }, 1500);
   });
 }

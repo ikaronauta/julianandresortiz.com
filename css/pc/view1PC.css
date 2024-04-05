@@ -49,7 +49,7 @@
 }
 
 .li-active {
-    color: white !important;
+    color: rgb(221, 221, 221) !important;
     font-weight: bold;
 }
 
@@ -61,7 +61,6 @@
 .viewP {
     height: 100vh;
     width: 100%;
-    color: rgb(221, 221, 221);
     font-size: 20px;
     line-height: 1.5;
     overflow-x: hidden;
@@ -100,6 +99,8 @@
     border-top: 3px #FF9800 solid;
     border-right: 3px solid #FF9800;
     border-radius: 5px 5px 0 0;
+
+    color: #FF9800;
 }
 
 .containerSection1 h2 {
@@ -342,6 +343,7 @@
 
 .containerSection3 .containerInterior .containerQR .textQR {
     margin-top: 2em;
+    color: #FF9800;
 }
 
 .imgQRActive {

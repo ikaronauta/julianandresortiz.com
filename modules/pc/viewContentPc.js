@@ -1,3 +1,4 @@
+
 import { dataViewsPC } from "../../assets/data/datos.js";
 import { createForm, sendMessage } from "../../core/main.js";
 
@@ -155,12 +156,12 @@ function navPC() {
   let ul = $("<ul>");
   let countLi = 0;
 
-  for (const view in dataViewsPC) {
+  for (const view in dataViewsPC.es) {
     countLi++;
     ul.append(
       $("<li>", {
         id: `li-view${countLi}PC`,
-        text: dataViewsPC[view].title,
+        text: dataViewsPC.es[view].title,
       })
     );
   }
@@ -190,12 +191,12 @@ function contentView1PC() {
   });
 
   let h2 = $("<h2>", {
-    text: dataViewsPC.view1.title,
+    text: dataViewsPC.es.view1.title,
   });
 
   contTexto.append(h2);
 
-  dataViewsPC.view1.items.forEach(function (item) {
+  dataViewsPC.es.view1.items.forEach(function (item) {
     contTexto.append($(item.etiqueta).text(item.texto));
   });
 
@@ -224,7 +225,7 @@ function contentView2PC() {
   });
 
   let h2 = $("<h2>", {
-    text: dataViewsPC.view2.title,
+    text: dataViewsPC.es.view2.title,
   });
 
   let containerGrid = $("<div>", {
@@ -235,7 +236,7 @@ function contentView2PC() {
   containerSuperior.append(containerLeft);
   containerSection2.append(containerSuperior);
 
-  dataViewsPC.view2.items.forEach(function (item) {
+  dataViewsPC.es.view2.items.forEach(function (item) {
     let position = count % 2 == 0 ? "left-pc" : "right-pc";
 
     count++;
@@ -266,7 +267,7 @@ function contentView3PC() {
   });
 
   let h2 = $("<h2>", {
-    text: dataViewsPC.view3.title,
+    text: dataViewsPC.es.view3.title,
   });
 
   let containerInterior = $("<div>", {
@@ -354,7 +355,7 @@ function createSectionSocialNetworksPC(clase) {
     class: `containerSocialNetworks ${clase}`,
   });
 
-  dataViewsPC.view3.items.forEach(function (item) {
+  dataViewsPC.es.view3.items.forEach(function (item) {
     let a = $("<a>", {
       href: item.href,
     });
