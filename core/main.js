@@ -1,4 +1,4 @@
-import { dataEmail } from "../assets/data/datos.js"
+import { dataEmail, datosFormulario } from "../assets/data/datos.js"
 
 export function createLouder() {
   $("#root").append(
@@ -61,7 +61,7 @@ export function alert1(mensaje, icon) {
   $("#root").append(alertContainer);
 }
 
-export function createForm(idForm) {
+export function createForm(lenguaje, idForm) {
   let form = $("<form>", {
     id: idForm, //form-concact
     class: "form",
@@ -69,7 +69,7 @@ export function createForm(idForm) {
 
   let labelName = $("<label>", {
     class: "label-form",
-    text: "Nombre",
+    text: datosFormulario[lenguaje].name,
     for: "name",
   });
 
@@ -78,7 +78,7 @@ export function createForm(idForm) {
     type: "text",
     name: "user_name",
     class: "input-form",
-    placeholder: "Nombre",
+    placeholder: datosFormulario[lenguaje].name,
   });
 
   let section1 = $("<div>", {
@@ -90,7 +90,7 @@ export function createForm(idForm) {
 
   let labelEmail = $("<label>", {
     class: "label-form",
-    text: "Email *",
+    text: `${datosFormulario[lenguaje].email} *`,
     for: "email",
   });
 
@@ -99,7 +99,7 @@ export function createForm(idForm) {
     type: "email",
     name: "user_email",
     class: "input-form",
-    placeholder: "Email",
+    placeholder: datosFormulario[lenguaje].email,
     required: true,
   });
 
@@ -112,7 +112,7 @@ export function createForm(idForm) {
 
   let labelMensaje = $("<label>", {
     class: "label-form",
-    text: "Mensaje *",
+    text: `${datosFormulario[lenguaje].message} *`,
     for: "mensaje",
   });
 
@@ -120,7 +120,7 @@ export function createForm(idForm) {
     id: "mensaje",
     name: "message",
     class: "textarea-form",
-    placeholder: "Mensaje",
+    placeholder: datosFormulario[lenguaje].message,
     required: true,
   });
 
@@ -134,7 +134,7 @@ export function createForm(idForm) {
   let button = $("<button>", {
     type: "submit",
     class: "button-form",
-    text: "Enviar",
+    text: datosFormulario[lenguaje].send,
   });
 
   let section4 = $("<div>", {

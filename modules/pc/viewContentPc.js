@@ -16,14 +16,15 @@ let countSkillsPc = 0;
 //TimeOuts/Itervals
 let mostrarSkillsPC;
 
-export function viewContentPC() {
+export function viewContentPC(lenguaje) {
   root.addClass("scrollDisabled ");
-  root.append(navPC());
-  root.append(createSectionSocialNetworksPC("snPCleft"));
-  root.append(createSectionSocialNetworksPC("snPCrigth ocultarRigth"));
-  root.append(contentView1PC().addClass("viewDisable"));
-  root.append(contentView2PC());
-  root.append(contentView3PC());
+  root.append(navPC(lenguaje));
+  root.append(opcionesLenguaje());
+  root.append(createSectionSocialNetworksPC(lenguaje, "snPCleft"));
+  root.append(createSectionSocialNetworksPC(lenguaje, "snPCrigth ocultarRigth"));
+  root.append(contentView1PC(lenguaje).addClass("viewDisable"));
+  root.append(contentView2PC(lenguaje));
+  root.append(contentView3PC(lenguaje));
 
   $('ul li:first-child').addClass('li-active');
 
@@ -42,6 +43,10 @@ function listenersPC() {
     $('.snPCleft').addClass('mostrarLeft');
     SocialNetWorkLeftOpen = true;
     SocialNetWorkRigthOpen = false;
+
+    setTimeout(() => {
+      $('.opcionesLenguaje').addClass('activeOpcioneslenguaje');
+    }, 3000);
   });
 
   $(window).on("scroll", function () {
@@ -135,13 +140,26 @@ function listenersPC() {
     });
   });
 
+  $("#es, #en").on("click", function(){
+    var prueba = $(this).attr("id");
+
+    QRview3open = false;
+    skillsPCOpen = false;
+    root.empty();
+    viewContentPC(prueba);
+    
+    $("#contenedorLenguajes").children().each(function(i, item){
+      $(item).toggleClass("activeLenguaje");
+    });
+  });
+
   $("#form-concact-pc").on("submit", function (e) {
     e.preventDefault();
     sendMessage(this);
   });
 }
 
-function navPC() {
+function navPC(lenguaje) {
   let nav = $("<nav>", {
     id: "nav-pc",
     class: "nav-pc",
@@ -156,12 +174,12 @@ function navPC() {
   let ul = $("<ul>");
   let countLi = 0;
 
-  for (const view in dataViewsPC.es) {
+  for (const view in dataViewsPC[lenguaje]) {
     countLi++;
     ul.append(
       $("<li>", {
         id: `li-view${countLi}PC`,
-        text: dataViewsPC.es[view].title,
+        text: dataViewsPC[lenguaje][view].title,
       })
     );
   }
@@ -172,7 +190,31 @@ function navPC() {
   return nav;
 }
 
-function contentView1PC() {
+function opcionesLenguaje(){
+  let opcionesLenguaje = $("<div>", {
+    id: "contenedorLenguajes",
+    class: "opcionesLenguaje",
+  });
+
+  let opcionEs = $("<p>", {
+    id: "es",
+    class: "opcionLenguaje activeLenguaje",
+    text: "Es"
+  });
+
+  let opcionEn = $("<p>", {
+    id: "en",
+    class: "opcionLenguaje",
+    text: "En"
+  });
+
+  opcionesLenguaje.append(opcionEs);
+  opcionesLenguaje.append(opcionEn);
+
+  return opcionesLenguaje;
+}
+
+function contentView1PC(lenguaje) {
   let view1 = createView("view1PC");
 
   let containerSection1 = $("<div>", {
@@ -191,12 +233,12 @@ function contentView1PC() {
   });
 
   let h2 = $("<h2>", {
-    text: dataViewsPC.es.view1.title,
+    text: dataViewsPC[lenguaje].view1.title,
   });
 
   contTexto.append(h2);
 
-  dataViewsPC.es.view1.items.forEach(function (item) {
+  dataViewsPC[lenguaje].view1.items.forEach(function (item) {
     contTexto.append($(item.etiqueta).text(item.texto));
   });
 
@@ -207,7 +249,7 @@ function contentView1PC() {
   return view1;
 }
 
-function contentView2PC() {
+function contentView2PC(lenguaje) {
   let count = 0;
 
   let view2 = createView("view2PC");
@@ -225,7 +267,7 @@ function contentView2PC() {
   });
 
   let h2 = $("<h2>", {
-    text: dataViewsPC.es.view2.title,
+    text: dataViewsPC[lenguaje].view2.title,
   });
 
   let containerGrid = $("<div>", {
@@ -236,7 +278,7 @@ function contentView2PC() {
   containerSuperior.append(containerLeft);
   containerSection2.append(containerSuperior);
 
-  dataViewsPC.es.view2.items.forEach(function (item) {
+  dataViewsPC[lenguaje].view2.items.forEach(function (item) {
     let position = count % 2 == 0 ? "left-pc" : "right-pc";
 
     count++;
@@ -251,7 +293,7 @@ function contentView2PC() {
   return view2;
 }
 
-function contentView3PC() {
+function contentView3PC(lenguaje) {
   let view3 = createView("view3PC");
 
   let containerSection3 = $("<div>", {
@@ -267,7 +309,7 @@ function contentView3PC() {
   });
 
   let h2 = $("<h2>", {
-    text: dataViewsPC.es.view3.title,
+    text: dataViewsPC[lenguaje].view3.title,
   });
 
   let containerInterior = $("<div>", {
@@ -286,12 +328,12 @@ function contentView3PC() {
 
   let small = $("<div>", {
     class: "textQR",
-    text: "* Puedes escanear el siguiente código QR y visualizar el contenido desde tu smarthphone.",
+    text: dataViewsPC[lenguaje].view3.small,
   });
 
   containerRigth.append(h2);
   containerSuperior.append(containerRigth);
-  containerInterior.append(createForm("form-concact-pc"));
+  containerInterior.append(createForm(lenguaje,"form-concact-pc"));
   containerQR.append(img);
   containerQR.append(small);
   containerInterior.append(containerQR);
@@ -350,12 +392,12 @@ function addCardGrid(dataCard, position) {
   return card;
 }
 
-function createSectionSocialNetworksPC(clase) {
+function createSectionSocialNetworksPC(lenguaje, clase) {
   let containerSocialNetworksPC = $("<div>", {
     class: `containerSocialNetworks ${clase}`,
   });
 
-  dataViewsPC.es.view3.items.forEach(function (item) {
+  dataViewsPC[lenguaje].view3.items.forEach(function (item) {
     let a = $("<a>", {
       href: item.href,
     });
