@@ -11,10 +11,10 @@ let skillsOpen = false;
 //TimeOuts/Itervals
 let mostrarSkill, ocultarSkills;
 
-export function viewContent() {
-  $("#root").append(view1Container());
-  $("#root").append(view2Container());
-  $("#root").append(view3Container());
+export function viewContent(lenguaje) {
+  $("#root").append(view1Container(lenguaje));
+  $("#root").append(view2Container(lenguaje));
+  $("#root").append(view3Container(lenguaje));
   $("#root").append(footerView3());
 
   listenersView1();
@@ -24,7 +24,7 @@ export function viewContent() {
   }, 400);
 }
 
-function view1Container() {
+function view1Container(lenguaje) {
   let view1 = createView("view1");
 
   let logo = $("<img>", {
@@ -35,10 +35,10 @@ function view1Container() {
   });
 
   view1.append(logo);
-  view1.append(subTitle(dataViews.es.view1.title));
+  view1.append(subTitle(dataViews[lenguaje].view1.title));
   view1.append($("<hr>"));
 
-  dataViews.es.view1.items.forEach(function (item) {
+  dataViews[lenguaje].view1.items.forEach(function (item) {
     view1.append(
       $(item.etiqueta, {
         text: item.texto,
@@ -49,13 +49,13 @@ function view1Container() {
   return view1;
 }
 
-function view2Container() {
+function view2Container(lenguaje) {
   let view2 = createView("view2");
 
-  view2.append(subTitle(dataViews.es.view2.title));
+  view2.append(subTitle(dataViews[lenguaje].view2.title));
   view2.append($("<hr>"));
 
-  dataViews.es.view2.items.forEach(function (skill) {
+  dataViews[lenguaje].view2.items.forEach(function (skill) {
     let container = $("<div>", {
       class: "container-skill disable",
     });
@@ -95,12 +95,12 @@ function view2Container() {
   return view2;
 }
 
-function view3Container() {
+function view3Container(lenguaje) {
   let view3 = createView("view3");
 
-  view3.append(subTitle(dataViews.es.view3.title));
+  view3.append(subTitle(dataViews[lenguaje].view3.title));
   view3.append($("<hr>"));
-  view3.append(createForm("form-concact"));
+  view3.append(createForm(lenguaje, "form-concact"));
 
   return view3;
 }

@@ -42,7 +42,7 @@ function initEventListeners() {
     showV1 = false;
     clearTimeout(mostrarView1);
     root.empty();
-    viewContent();
+    viewContent("en");
   });
 }
 
