@@ -1,6 +1,6 @@
 import { dataViews } from "../../../assets/data/datos.js";
-// import { createLouder, destroyLouder, alert1 } from "../../../core/main.js";
 import { createForm, sendMessage } from "../../core/main.js";
+import { createSideBarMovil } from "./sideBarMovile.js";
 
 // Variables
 let windowHeight = $(window).height();
@@ -15,13 +15,15 @@ export function viewContent(lenguaje) {
   $("#root").append(view1Container(lenguaje));
   $("#root").append(view2Container(lenguaje));
   $("#root").append(view3Container(lenguaje));
+  $("#root").append(createSideBarMovil(lenguaje));
   $("#root").append(footerView3());
-
-  listenersView1();
 
   setTimeout(() => {
     $(".viewN").addClass("mostrar");
   }, 400);
+
+  listenersView1();
+  validarItemActivo();
 }
 
 function view1Container(lenguaje) {
@@ -165,6 +167,47 @@ function listenersView1() {
     e.preventDefault();
     sendMessage(this);
   });
+
+  $("#hamburgerMenu").on("click", function () {
+    $("#containerSideBar").toggleClass("sideBar-cerrado sideBar-abierto");
+    $("#containerSideBar").toggleClass("abiertoMenu cerradoMenu");
+  });
+
+  $(".itemMovil").on("click", function () {
+
+    if($(this).attr("class").includes("itemEnable")) return;
+
+    $(".hermanoSuperior").removeClass("hermanoSuperior");
+    $(".hermanoInferior").removeClass("hermanoInferior");
+
+    $(".itemEnable").toggleClass("itemEnable itemDisable");
+    $(this).toggleClass("itemEnable itemDisable");
+
+    validarItemActivo();
+  });
+
+}
+
+function validarItemActivo(){
+  $(".itemMovil").each(function(index, item){
+    if($(item).hasClass("itemEnable")){
+      if($(item).prev().length > 0){
+        $(item).prev().addClass("hermanoSuperior");
+        
+        if($(item).next().length > 0){
+          $(item).next().addClass("hermanoInferior");
+        }else {
+          $(item).parent().next().addClass("hermanoInferior");
+        }
+      } else {
+        $(item).parent().prev().addClass("hermanoSuperior");
+        
+        if($(item).next().length > 0){
+          $(item).next().addClass("hermanoInferior");
+        }
+      }
+    }
+  });
 }
 
 function createView(idView) {
@@ -207,3 +250,4 @@ function footerView3() {
 
   return footer;
 }
+

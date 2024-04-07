@@ -1,0 +1,143 @@
+.container-sideBar{
+    z-index: 999;
+    width: 15rem;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+
+    display: flex;
+}
+
+.sideBar-cerrado {
+    right: -12.8rem;
+    transition: right 0.5s ease;
+}
+
+.sideBar-abierto{
+    right: 0;
+    transition: right 0.5s ease;
+}
+
+.container-openClose-navBar{
+    width: 2.5rem;
+    height: 100%;
+    padding-top: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hamburger-menu {
+    width: 105%;
+    height: 2em;
+    background-color: #FF9800;
+    border-radius: 5px 0 0 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.abiertoMenu #hamburgerMenu .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: transform 0.5s ease;
+}
+
+.cerradoMenu #hamburgerMenu .bar:nth-child(1) {
+    transform: rotate(0deg) translate(0px, 0px);
+    transition: transform 0.5s ease;
+}
+
+.abiertoMenu #hamburgerMenu .bar:nth-child(2) {
+    opacity: 0;
+    transition: opcity 0.2s ease;
+}
+
+.cerradoMenu #hamburgerMenu .bar:nth-child(2) {
+    opacity: 1;
+    transition: opcity 0.2s ease;
+}
+
+.abiertoMenu #hamburgerMenu .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+    transition: transform 0.5s ease;
+}
+
+.cerradoMenu #hamburgerMenu .bar:nth-child(3) {
+    transform: rotate(0deg) translate(0px, 0px);
+    transition: transform 0.5s ease;
+}
+
+.bar {
+    width: 70%;
+    height: 5px;
+    background-color: black;
+    margin: 1.5px;
+    border-radius: 5px;
+
+}
+
+.sideBarMobil {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    border-left: 3px solid black;
+}
+
+.cabecera {
+    width: 100%;
+    height: 20vh;
+    background-color: #FF9800;
+}
+
+.listaMovil {
+    width: 100%;
+    height: auto;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.listaMovil li {
+    width: 100%;
+    padding: 2rem 1.5rem;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+/* .listaMovil li:hover {
+    background-color: black;
+    color: white;
+} */
+
+.footerSideBarMovil{
+    width: 100%;
+    height: 100%;
+    background-color:#FF9800;
+}
+
+.hermanoSuperior {
+    background-color: #FF9800;
+    border-radius: 0 0 0 30px;
+}
+
+.hermanoInferior {
+    background-color: #FF9800;
+    border-radius: 30px 0 0 0;
+}
+
+.itemDisable {
+    background-color: #FF9800;
+}
+
+.itemEnable{
+    background-color: black;
+    color: aliceblue;
+    font-size: 1.5rem;
+}

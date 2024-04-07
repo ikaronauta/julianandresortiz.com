@@ -29,7 +29,7 @@ function initEventListeners() {
         id: "container-mensaje",
       });
 
-      let p = $("<p>").text("Toque la pantalla para omitir el Intro.");
+      let p = $("<p>").text("Touch the screen to skip the Intro"); //Toque la pantalla para omitir el Intro.
 
       omitirItro.append(p);
       viewMain.append(omitirItro);
@@ -76,7 +76,7 @@ function animacionImagen(viewMain) {
           viewMain.addClass("ocultar");
           setTimeout(() => {
             root.empty();
-            viewContent();
+            viewContent("en");
           }, 1000);
         }, 1000);
       }, 1000);
