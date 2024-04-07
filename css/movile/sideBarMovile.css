@@ -33,6 +33,9 @@
     height: 2em;
     background-color: #FF9800;
     border-radius: 5px 0 0 5px;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
 
     display: flex;
     flex-direction: column;
@@ -102,14 +105,18 @@
     flex-direction: column;
 }
 
-.listaMovil li {
+.listaMovil li a {
     width: 100%;
     padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
 
     display: flex;
     justify-content: start;
     align-items: center;
 }
+
 
 /* .listaMovil li:hover {
     background-color: black;
@@ -136,8 +143,9 @@
     background-color: #FF9800;
 }
 
-.itemEnable{
+.itemEnable a{
     background-color: black;
-    color: aliceblue;
-    font-size: 1.5rem;
+    color: #FF9800 !important;
+    font-size: 1.7rem;
+    font-weight: bold;
 }

@@ -169,23 +169,34 @@ function listenersView1() {
   });
 
   $("#hamburgerMenu").on("click", function () {
-    $("#containerSideBar").toggleClass("sideBar-cerrado sideBar-abierto");
-    $("#containerSideBar").toggleClass("abiertoMenu cerradoMenu");
+    abrirCerrarMenu();
   });
 
-  $(".itemMovil").on("click", function () {
+  $(".enlaceLi").on("click", function () {
+    var target = $(this).attr('href');
 
-    if($(this).attr("class").includes("itemEnable")) return;
+    if($(this).parent().attr("class").includes("itemEnable")) return;
 
     $(".hermanoSuperior").removeClass("hermanoSuperior");
     $(".hermanoInferior").removeClass("hermanoInferior");
 
     $(".itemEnable").toggleClass("itemEnable itemDisable");
-    $(this).toggleClass("itemEnable itemDisable");
+    $(this).parent().toggleClass("itemEnable itemDisable");
 
     validarItemActivo();
+
+    $('html, body').animate({
+      scrollTop: $(target).offset().top
+    }, 800);
+
+    abrirCerrarMenu();
   });
 
+}
+
+function abrirCerrarMenu(){
+  $("#containerSideBar").toggleClass("sideBar-cerrado sideBar-abierto");
+    $("#containerSideBar").toggleClass("abiertoMenu cerradoMenu");
 }
 
 function validarItemActivo(){

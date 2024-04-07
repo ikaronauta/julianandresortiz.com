@@ -48,9 +48,17 @@ function gettItems(lenguaje){
 
   let count = 0;
   for (const item in dataViews[lenguaje]) {
-    ul.append($("<li>", {
+    let li = $("<li>", {
       class: count == 0 ? "itemMovil itemEnable" : "itemMovil itemDisable",
+    });
+
+    li.append($("<a>", {
+      href: `#${item}`,
+      class: "enlaceLi"
     }).text(dataViews[lenguaje][item].title));
+
+    ul.append(li);
+
     count++;
   }
   count = 0;
