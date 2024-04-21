@@ -34,6 +34,14 @@ function createCabecera(lenguaje){
     class: "cabecera",
   });
 
+  let imgNavBar = $("<img>", {
+    src: "assets/images/main.jpg",
+    id: "imgNavBar",
+    alt: "Julian A. Ortiz",
+  });
+
+  cabecera.append(imgNavBar);
+
   return cabecera;
 }
 
