@@ -157,6 +157,15 @@ function listenersPC() {
     e.preventDefault();
     sendMessage(this);
   });
+
+  $(".enlaceLi").on("click", function () {
+    var target = $(this).attr('href');
+
+    $('html, body').animate({
+      scrollTop: $(target).offset().top
+    }, 800);
+
+  });
 }
 
 function navPC(lenguaje) {
