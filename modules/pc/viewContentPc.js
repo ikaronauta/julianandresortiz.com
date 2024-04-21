@@ -176,12 +176,25 @@ function navPC(lenguaje) {
 
   for (const view in dataViewsPC[lenguaje]) {
     countLi++;
-    ul.append(
-      $("<li>", {
-        id: `li-view${countLi}PC`,
-        text: dataViewsPC[lenguaje][view].title,
-      })
-    );
+
+    let li = $("<li>", {
+      id: `li-view${countLi}PC`,
+      class: "itemPC",
+    });
+
+    li.append($("<a>", {
+      href: `#${view}PC`,
+      class: "enlaceLi"
+    }).text(dataViewsPC[lenguaje][view].title));
+    
+    ul.append(li);
+
+    // ul.append(
+    //   $("<li>", {
+    //     id: `li-view${countLi}PC`,
+    //     text: dataViewsPC[lenguaje][view].title,
+    //   })
+    // );
   }
 
   nav.append(img);

@@ -38,12 +38,18 @@
 
 .nav-pc ul li {
     list-style: none;
+}
+
+.nav-pc ul li a {
+    list-style: none;
     margin-right: 1rem;
     color: #FF9800;
     cursor: pointer;
+
+    text-decoration: none;
 }
 
-.nav-pc ul li:hover {
+.nav-pc ul li a:hover {
     color: white;
     font-weight: bold;
 }
@@ -106,7 +112,7 @@
     border-radius: 0 0 5px 0;
 }
 
-.li-active {
+.li-active a {
     color: rgb(221, 221, 221) !important;
     font-weight: bold;
 }
