@@ -161,6 +161,19 @@ function listenersView1() {
       $("#footerView3").addClass("disableFooterView3");
       footerView3open = false;
     }
+
+    $('.viewN').each(function(){
+      let target = $(this).offset().top;
+      let id = $(this).attr('id');
+      let pr = $('nav').find(`a[href="#${id}"]`)
+
+      if (target <= scrollTop + window.innerHeight - 0.2 * window.innerHeight && target + $(this).outerHeight() > scrollTop + 0.2 * window.innerHeight) {
+        
+        ajustarEstilosNavBar(pr);
+        validarItemActivo();
+      }
+    });
+    
   });
 
   $("#form-concact").on("submit", function (e) {
@@ -175,13 +188,7 @@ function listenersView1() {
   $(".enlaceLi").on("click", function () {
     var target = $(this).attr('href');
 
-    if($(this).parent().attr("class").includes("itemEnable")) return;
-
-    $(".hermanoSuperior").removeClass("hermanoSuperior");
-    $(".hermanoInferior").removeClass("hermanoInferior");
-
-    $(".itemEnable").toggleClass("itemEnable itemDisable");
-    $(this).parent().toggleClass("itemEnable itemDisable");
+    ajustarEstilosNavBar(this);
 
     validarItemActivo();
 
@@ -192,6 +199,16 @@ function listenersView1() {
     abrirCerrarMenu();
   });
 
+}
+
+function ajustarEstilosNavBar(view){
+    if($(view).parent().attr("class").includes("itemEnable")) return;
+
+    $(".hermanoSuperior").removeClass("hermanoSuperior");
+    $(".hermanoInferior").removeClass("hermanoInferior");
+
+    $(".itemEnable").toggleClass("itemEnable itemDisable");
+    $(view).parent().toggleClass("itemEnable itemDisable");
 }
 
 function abrirCerrarMenu(){

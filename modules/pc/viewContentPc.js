@@ -52,8 +52,8 @@ function listenersPC() {
   $(window).on("scroll", function () {
     let disparadorSkills = windowHeight * 0.35;
     let disparadorQR = windowHeight * 0.35;
-    let disparadorPrueba = windowHeight * 0.40;
-    let disparador2Prueba = - disparadorPrueba;
+    let disparador1 = windowHeight * 0.40;
+    let disparador2 = - disparador1;
     let scrollTop = $(window).scrollTop();
 
     let view1Top = $("#view1PC").offset().top;
@@ -64,8 +64,6 @@ function listenersPC() {
 
     let view3Top = $("#view3PC").offset().top;
     let diferenciaView3TopScrollTopPixeles = view3Top - scrollTop;
-
-    //console.log(`${diferenciaView2TopScrollTopPixeles >  disparador2Prueba} disparador2Prueba: ${disparador2Prueba} - scrollTop: ${scrollTop} - view1Top: ${view1Top} - diferencia: ${diferenciaView1TopScrollTopPixeles}`);
 
     if (
       diferenciaView2TopScrollTopPixeles < disparadorSkills &&
@@ -93,7 +91,7 @@ function listenersPC() {
       }, 700);
     }
 
-    if (diferenciaView1TopScrollTopPixeles > disparador2Prueba && !SocialNetWorkRigthOpen) {
+    if (diferenciaView1TopScrollTopPixeles > disparador2 && !SocialNetWorkRigthOpen) {
       $('.snPCleft').removeClass('ocultarLeft');
       $('.snPCleft').addClass('mostrarLeft');
 
@@ -105,7 +103,7 @@ function listenersPC() {
       SocialNetWorkLeftOpen = false;
     }
 
-    if (diferenciaView2TopScrollTopPixeles <= disparadorPrueba && !SocialNetWorkLeftOpen) {
+    if (diferenciaView2TopScrollTopPixeles <= disparador1 && !SocialNetWorkLeftOpen) {
       $('.snPCleft').removeClass('mostrarLeft');
       $('.snPCleft').addClass('ocultarLeft');
 
@@ -116,7 +114,7 @@ function listenersPC() {
       SocialNetWorkRigthOpen = false;
     }
 
-    if (diferenciaView3TopScrollTopPixeles <= disparadorPrueba && !SocialNetWorkRigthOpen) {
+    if (diferenciaView3TopScrollTopPixeles <= disparador1 && !SocialNetWorkRigthOpen) {
       //console.log("Ocultar socialNetWork Vista 2");
       $('.snPCleft').removeClass('ocultarLeft');
       $('.snPCleft').addClass('mostrarLeft');
