@@ -162,10 +162,10 @@ function listenersView1() {
       footerView3open = false;
     }
 
-    $('.viewN').each(function(){
+    $(".viewN").each(function(){
       let target = $(this).offset().top;
-      let id = $(this).attr('id');
-      let pr = $('nav').find(`a[href="#${id}"]`)
+      let id = $(this).attr("id");
+      let pr = $("nav").find(`a[href="#${id}"]`)
 
       if (target <= scrollTop + window.innerHeight - 0.2 * window.innerHeight && target + $(this).outerHeight() > scrollTop + 0.2 * window.innerHeight) {
         
@@ -186,19 +186,23 @@ function listenersView1() {
   });
 
   $(".enlaceLi").on("click", function () {
-    var target = $(this).attr('href');
+    var target = $(this).attr("href");
 
     ajustarEstilosNavBar(this);
 
     validarItemActivo();
 
-    $('html, body').animate({
+    $("html, body").animate({
       scrollTop: $(target).offset().top
     }, 800);
 
     abrirCerrarMenu();
   });
 
+  $(".opcionLenguajeMovil").on("click", function(){
+    $("#root").empty();
+    viewContent($(this).attr("id"));
+  });
 }
 
 function ajustarEstilosNavBar(view){

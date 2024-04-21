@@ -83,5 +83,30 @@ function createFooterSideBarMovil(lenguaje){
     class: "footerSideBarMovil",
   });
 
+  footerSideBar.append(opcionesLenguaje(lenguaje));
+
   return footerSideBar;
+}
+
+function opcionesLenguaje(lenguaje){
+  let opcionesLenguaje = $("<div>", {
+    class: "contenedorLenguajesMovil",
+  });
+
+  let opcionEs = $("<p>", {
+    id: "es",
+    class: `opcionLenguajeMovil ${lenguaje == "es" ? "active" : ""}`,
+    text: "Spanish"
+  });
+
+  let opcionEn = $("<p>", {
+    id: "en",
+    class: `opcionLenguajeMovil ${lenguaje == "en" ? "active" : ""}`,
+    text: "English"
+  });
+
+  opcionesLenguaje.append(opcionEs);
+  opcionesLenguaje.append(opcionEn);
+
+  return opcionesLenguaje;
 }

@@ -139,12 +139,12 @@ function listenersPC() {
   });
 
   $("#es, #en").on("click", function(){
-    var prueba = $(this).attr("id");
+    var idioma = $(this).attr("id");
 
     QRview3open = false;
     skillsPCOpen = false;
     root.empty();
-    viewContentPC(prueba);
+    viewContentPC(idioma);
     
     $("#contenedorLenguajes").children().each(function(i, item){
       $(item).toggleClass("activeLenguaje");
