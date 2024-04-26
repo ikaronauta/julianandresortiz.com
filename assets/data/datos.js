@@ -52,7 +52,8 @@ export const dataViews = {
           id: 2,
           title: "jQuery",
           nivel: "60%",
-          logo: "jquery.svg"
+          logo: "jquery.svg",
+          active: true,
         },
         {
           id: 3,
@@ -73,6 +74,13 @@ export const dataViews = {
           title: "Angular",
           nivel: "10%",
           logo: "angular.svg",
+          active: false,
+        },
+        {
+          id: 6,
+          title: "React",
+          nivel: "10%",
+          logo: "react.svg",
           active: true,
         },
         {
@@ -171,7 +179,8 @@ export const dataViews = {
           id: 2,
           title: "jQuery",
           nivel: "60%",
-          logo: "jquery.svg"
+          logo: "jquery.svg",
+          active: true,
         },
         {
           id: 3,
@@ -192,6 +201,13 @@ export const dataViews = {
           title: "Angular",
           nivel: "10%",
           logo: "angular.svg",
+          active: false,
+        },
+        {
+          id: 6,
+          title: "React",
+          nivel: "10%",
+          logo: "react.svg",
           active: true,
         },
         {
@@ -293,7 +309,8 @@ export const dataViewsPC = {
           id: 2,
           title: "jQuery",
           nivel: "60%",
-          logo: "jquery.svg"
+          logo: "jquery.svg",
+          active: true,
         },
         {
           id: 3,
@@ -314,6 +331,13 @@ export const dataViewsPC = {
           title: "Angular",
           nivel: "10%",
           logo: "angular.svg",
+          active: false,
+        },
+        {
+          id: 6,
+          title: "React",
+          nivel: "10%",
+          logo: "react.svg",
           active: true,
         },
         {
@@ -413,7 +437,8 @@ export const dataViewsPC = {
           id: 2,
           title: "jQuery",
           nivel: "60%",
-          logo: "jquery.svg"
+          logo: "jquery.svg",
+          active: true,
         },
         {
           id: 3,
@@ -434,6 +459,13 @@ export const dataViewsPC = {
           title: "Angular",
           nivel: "10%",
           logo: "angular.svg",
+          active: false,
+        },
+        {
+          id: 6,
+          title: "React",
+          nivel: "10%",
+          logo: "react.svg",
           active: true,
         },
         {

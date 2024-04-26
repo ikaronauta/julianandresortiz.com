@@ -300,10 +300,11 @@ function contentView2PC(lenguaje) {
 
   dataViewsPC[lenguaje].view2.items.forEach(function (item) {
     let position = count % 2 == 0 ? "left-pc" : "right-pc";
-
-    count++;
-
-    containerGrid.append(addCardGrid(item, position));
+    
+    if(item.active) {
+      count++;
+      containerGrid.append(addCardGrid(item, position));
+    }
   });
 
   containerSection2.append(containerGrid);

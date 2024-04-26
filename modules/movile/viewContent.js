@@ -58,6 +58,8 @@ function view2Container(lenguaje) {
   view2.append($("<hr>"));
 
   dataViews[lenguaje].view2.items.forEach(function (skill) {
+    if(!skill.active) return;
+
     let container = $("<div>", {
       class: "container-skill disable",
     });
