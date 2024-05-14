@@ -66,8 +66,6 @@ function cargarContenido() {
 
 function initEventListenersPC() {
   $(window).on("load", function () {
-    let count = 0;
-
     $("#mainPC").toggleClass("enableHomePC disableHomePC");
 
     setTimeout(() => {
@@ -78,7 +76,7 @@ function initEventListenersPC() {
         $("#mainPC").toggleClass("enableHomePC disableHomePC");
         setTimeout(() => {
           root.empty();
-          viewContentPC("es");
+          viewContentPC("en");
         }, 500);
 
       }, 1500);

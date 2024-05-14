@@ -145,6 +145,18 @@ export const dataViews = {
           active: true,
         },
       ],
+    },
+    view4: {
+      title: "Zona de Juegos",
+      items: [
+        {
+          id: 1,
+          title: "Pelota 2D",
+          href: "https://pelota2d.julianandresortiz.com/",
+          logo: "",
+          active: true,
+        },
+      ],
     }
   },
   en: {
@@ -269,6 +281,18 @@ export const dataViews = {
           title: "Email",
           href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com",
           logo: "email.svg",
+          active: true,
+        },
+      ],
+    },
+    view4: {
+      title: "Play Zone",
+      items: [
+        {
+          id: 1,
+          title: "Breakout 2D",
+          href: "https://pelota2d.julianandresortiz.com/",
+          logo: "",
           active: true,
         },
       ],
@@ -403,6 +427,18 @@ export const dataViewsPC = {
         },
       ],
       small: "* Puedes escanear el siguiente código QR y visualizar el contenido desde tu smarthphone."
+    },
+    view4: {
+      title: "Zona de Juegos",
+      items: [
+        {
+          id: 1,
+          title: "Pelota 2D",
+          href: "https://pelota2d.julianandresortiz.com/",
+          logo: "",
+          active: true,
+        },
+      ],
     }
   },
   en: {
@@ -531,6 +567,18 @@ export const dataViewsPC = {
         },
       ],
       small: "* Scan the following QR code to view the content on your smartphone."
+    },
+    view4: {
+      title: "Play Zone",
+      items: [
+        {
+          id: 1,
+          title: "Breakout 2D",
+          href: "https://pelota2d.julianandresortiz.com/",
+          logo: "",
+          active: true,
+        },
+      ],
     }
   }
 }

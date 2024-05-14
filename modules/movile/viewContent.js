@@ -190,13 +190,19 @@ function listenersView1() {
   $(".enlaceLi").on("click", function () {
     var target = $(this).attr("href");
 
+    if(parseInt(target.substr(5, 1)) > 3){
+      window.open('https://pelota2d.julianandresortiz.com/', '_blank');
+      abrirCerrarMenu();
+      return;
+    }
+
     ajustarEstilosNavBar(this);
 
     validarItemActivo();
 
     $("html, body").animate({
       scrollTop: $(target).offset().top
-    }, 800);
+    }, 800);   
 
     abrirCerrarMenu();
   });
@@ -284,4 +290,3 @@ function footerView3() {
 
   return footer;
 }
-
