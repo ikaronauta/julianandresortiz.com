@@ -106,6 +106,18 @@ export const dataViews = {
         },
       ]
     },
+    viewPZ: {
+      title: "Zona de Juegos",
+      items: [
+        {
+          id: 1,
+          title: "Pelota 2D",
+          href: "https://pelota2d.julianandresortiz.com/",
+          logo: "",
+          active: true,
+        },
+      ],
+    },
     view3: {
       title: "Contacto",
       items: [
@@ -146,18 +158,6 @@ export const dataViews = {
         },
       ],
     },
-    view4: {
-      title: "Zona de Juegos",
-      items: [
-        {
-          id: 1,
-          title: "Pelota 2D",
-          href: "https://pelota2d.julianandresortiz.com/",
-          logo: "",
-          active: true,
-        },
-      ],
-    }
   },
   en: {
     view1: {  
@@ -245,6 +245,18 @@ export const dataViews = {
         },
       ]
     },
+    viewPZ: {
+      title: "Play Zone",
+      items: [
+        {
+          id: 1,
+          title: "Breakout 2D",
+          href: "https://pelota2d.julianandresortiz.com/",
+          logo: "",
+          active: true,
+        },
+      ],
+    },
     view3: {
       title: "Contact",
       items: [
@@ -285,18 +297,6 @@ export const dataViews = {
         },
       ],
     },
-    view4: {
-      title: "Play Zone",
-      items: [
-        {
-          id: 1,
-          title: "Breakout 2D",
-          href: "https://pelota2d.julianandresortiz.com/",
-          logo: "",
-          active: true,
-        },
-      ],
-    }
   }
 }
 
