@@ -7,11 +7,13 @@ let windowHeight = $(window).height();
 let countSkill = 0;
 let footerView3open = false;
 let skillsOpen = false;
+let leng;
 
 //TimeOuts/Itervals
 let mostrarSkill, ocultarSkills;
 
 export function viewContent(lenguaje) {
+  leng = lenguaje;
   $("#root").append(view1Container(lenguaje));
   $("#root").append(view2Container(lenguaje));
   $("#root").append(view3Container(lenguaje));
@@ -170,12 +172,12 @@ function listenersView1() {
       let pr = $("nav").find(`a[href="#${id}"]`)
 
       if (target <= scrollTop + window.innerHeight - 0.2 * window.innerHeight && target + $(this).outerHeight() > scrollTop + 0.2 * window.innerHeight) {
-        
+
         ajustarEstilosNavBar(pr);
         validarItemActivo();
       }
     });
-    
+
   });
 
   $("#form-concact").on("submit", function (e) {
@@ -190,6 +192,15 @@ function listenersView1() {
   $(".enlaceLi").on("click", function () {
     var target = $(this).attr("href");
 
+    if(target != '#viewPS' && target != '#viewPZ')
+      cerrarExtra();
+
+    if(target == '#viewPS'){
+      viewExtra(target);
+      abrirCerrarMenu();
+      return;
+    }
+
     if(target == '#viewPZ'){
       window.open('https://pelota2d.julianandresortiz.com/', '_blank');
       abrirCerrarMenu();
@@ -202,7 +213,7 @@ function listenersView1() {
 
     $("html, body").animate({
       scrollTop: $(target).offset().top
-    }, 800);   
+    }, 800);
 
     abrirCerrarMenu();
   });
@@ -233,7 +244,7 @@ function validarItemActivo(){
     if($(item).hasClass("itemEnable")){
       if($(item).prev().length > 0){
         $(item).prev().addClass("hermanoSuperior");
-        
+
         if($(item).next().length > 0){
           $(item).next().addClass("hermanoInferior");
         }else {
@@ -241,7 +252,7 @@ function validarItemActivo(){
         }
       } else {
         $(item).parent().prev().addClass("hermanoSuperior");
-        
+
         if($(item).next().length > 0){
           $(item).next().addClass("hermanoInferior");
         }
@@ -250,10 +261,37 @@ function validarItemActivo(){
   });
 }
 
-function createView(idView) {
+function viewExtra(idView){
+  let viewPS = createView(idView.substr(1), "viewExtra");
+  let close = $("<p>", {
+    id: "closeExtra",
+    class: "closeExtra",
+    text: "X"
+  });
+
+  close.on("click", function(){
+    close.addClass("closeBotonPress");
+    cerrarExtra();
+  });
+
+  viewPS.append(subTitle(dataViews[leng][idView.substr(1)].title));
+  viewPS.append($("<hr>"));
+  viewPS.append(close);
+
+  $("#root").append(viewPS);
+
+  setTimeout(() => {
+    viewPS.addClass("extraAbierto");
+    if(idView == "#viewPS") tarjetasProjects();
+  }, 100);
+}
+
+function createView(idView, className) {
+  let cn = className ? className : "viewN";
+
   return $("<div>", {
     id: idView,
-    class: "viewN",
+    class: cn,
   });
 }
 
@@ -289,4 +327,69 @@ function footerView3() {
   });
 
   return footer;
+}
+
+function cerrarExtra(){
+  if($(".viewExtra").length == 0) return;
+
+  $($(".viewExtra")[0]).toggleClass("extraCerrado extraAbierto");
+
+    setTimeout(() => {
+      $($(".viewExtra")[0]).remove();
+    }, 3000);
+}
+
+function tarjetasProjects(){
+
+  let contenedorProyectos = $("<div>", {
+    class: "container-projects",
+  });
+
+  dataViews[leng]["viewPS"].items.forEach(function(proyecto){
+    let div = $("<div>", {
+      id: `item${proyecto.id}`,
+      class: "container-project",
+    });
+
+    div.append($("<h3>", {
+      class: "title-project",
+      text: proyecto.title,
+    }));
+
+    contenedorProyectos.append(div);
+  });
+
+  $("#viewPS").append(contenedorProyectos);
+
+  $(".title-project").on("click", function(){
+    $(this).parent().toggleClass("active-card-project");
+
+    if(!$(this).parent().attr("class").includes("active-card-project")){
+      $(this).parent().children().each(function(a, b){
+        if(a > 0) $(this).remove();
+      });
+      return;
+    }
+
+    let id = $(this).parent().attr("id").substr(4);
+    let dataProject = dataViews[leng].viewPS.items.find(function(proyecto){
+      return proyecto.id == id;
+    });
+
+    let logo = $("<img>", {
+      src: `assets/images/proyectos/${dataProject.srcLogo}`,
+      class: "projetc-logo",
+      alt: dataProject.srcLogo
+    });
+
+    let p = $("<p>", {
+      class: "description-project",
+      text: dataProject.descripcion
+    });
+
+    setTimeout(() => {
+      $(this).parent().append(logo);
+      $(this).parent().append(p);
+    }, 450);
+  });
 }

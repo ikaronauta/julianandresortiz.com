@@ -106,6 +106,16 @@ export const dataViews = {
         },
       ]
     },
+    viewPS: {
+      title: "Proyectos",
+      items: [
+        {
+          id: 1,
+          title: "Portal Analítica",
+          
+        }
+      ]
+    },
     viewPZ: {
       title: "Zona de Juegos",
       items: [
@@ -243,6 +253,60 @@ export const dataViews = {
           logo: "git.svg",
           active: true,
         },
+      ]
+    },
+    viewPS: {
+      title: "Projects",
+      items: [
+        {
+          id: 1,
+          title: "Analytics Portal",
+          srcLogo: "analitica/logo.png",
+          descripcion: "Proximamente",
+          itemsProyecto:[
+            {
+              title: "Login",
+              descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare mattis libero a suscipit. Nulla urna libero, euismod ac vestibulum sit amet.",
+              srcImg: ""
+            }
+          ]
+        },
+        // {
+        //   id: 2,
+        //   title: "Analytics Portal",
+        // },
+        // {
+        //   id: 3,
+        //   title: "Analytics Portal",
+        // },
+        // {
+        //   id: 4,
+        //   title: "Analytics Portal",
+        // },
+        // {
+        //   id: 5,
+        //   title: "Analytics Portal",
+        // },
+        // {
+        //   id: 6,
+        //   title: "Analytics Portal",
+        // },
+        // {
+        //   id: 7,
+        //   title: "Analytics Portal",
+        // },
+        // {
+        //   id: 8,
+        //   title: "Analytics Portal",
+        // },
+        // {
+        //   id: 9,
+        //   title: "Analytics Portal",
+        // },
+        // {
+        //   id: 10,
+        //   title: "Analytics Portal",
+        // },
       ]
     },
     viewPZ: {

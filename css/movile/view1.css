@@ -27,11 +27,12 @@
     margin: 0 auto 2rem auto;
 }
 
-#view1 p{
+#view1 p {
     margin-bottom: 1rem;
 }
 
-#view1 h2, #view3 h2 {
+#view1 h2,
+#view3 h2 {
     color: #FF9800;
 }
 
@@ -82,13 +83,14 @@
     background-color: #FF9800;
 }
 
-#view1 hr, #view3 hr{
+#view1 hr,
+#view3 hr {
     margin-bottom: 2rem;
     background-color: #FF9800;
     height: 1px;
 }
 
-#view2 hr{
+#view2 hr {
     margin-bottom: 2rem;
     background-color: black;
     height: 1px;
@@ -157,4 +159,4 @@
     #footerView3 {
         display: none;
     }
-  }
+}

@@ -56,12 +56,12 @@
 
 .abiertoMenu #hamburgerMenu .bar:nth-child(2) {
     opacity: 0;
-    transition: opcity 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .cerradoMenu #hamburgerMenu .bar:nth-child(2) {
     opacity: 1;
-    transition: opcity 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .abiertoMenu #hamburgerMenu .bar:nth-child(3) {
@@ -144,7 +144,7 @@
     height: 2em; 
 
     position: relative;
-    top: 35%;
+    top: 10%;
 
     display: flex;
     justify-content: space-around;

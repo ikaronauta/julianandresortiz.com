@@ -1,0 +1,103 @@
+.viewExtra {
+    z-index: 999999;
+    width: 100%;
+    height: 100%;
+    background-color: #008080;
+    position: fixed;
+    top: 110%;
+    padding: 2rem;
+    line-height: 1.5;
+    font-size: 20px;
+    color: aliceblue;
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left; */
+}
+
+.extraCerrado {
+    top: -110%;
+    transition: top 2s ease;
+}
+
+.extraAbierto {
+    top: 0;
+    transition: top 2s ease;
+}
+
+.closeExtra{
+    border: 3px solid aliceblue;
+    width:min-content;
+    padding: 0.1rem 0.5rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-weight: bold;
+}
+
+.closeBotonPress{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    background-color: aliceblue;
+}
+
+.container-projects{
+    width: 100%;
+    height: 90%;
+    margin-top: 1rem;
+    padding: 0.2rem 0;
+    overflow-x: auto;
+}
+
+.container-project{
+    border-radius: 5px;
+    height: 3rem;
+    margin: 1rem 0;
+    padding: 0.7rem 0.2rem;
+    background-color: aliceblue;
+    color: #008080;
+    cursor: pointer;
+    transition: height 2s ease;
+    position: relative;
+    
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-project > h3 {
+    width: 100%;
+    text-align: left;
+}
+
+.active-card-project {
+    height: 95%;
+    transition: height 2s ease;
+    /* align-items: flex-start; */
+}
+
+.close-card{
+    height: 3rem;
+    transition: height 2s ease;
+}
+
+.title-project {
+    position: absolute;
+    top: 0;
+    margin-top: 0.5rem;
+}
+
+.projetc-logo{
+    width: 80%;
+    height: auto;
+    margin-top: 4rem;
+}
+
+.description-project{
+    color: #008080;
+    font-weight: bold;
+    font-size: 2rem;
+}
