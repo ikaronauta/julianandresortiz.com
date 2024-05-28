@@ -336,7 +336,7 @@ function cerrarExtra(){
 
     setTimeout(() => {
       $($(".viewExtra")[0]).remove();
-    }, 3000);
+    }, 1500);
 }
 
 function tarjetasProjects(){
