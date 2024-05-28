@@ -60,7 +60,7 @@
     cursor: pointer;
     transition: height 2s ease;
     position: relative;
-    
+    overflow: hidden;
 
     display: flex;
     justify-content: space-around;
@@ -71,6 +71,7 @@
 .container-project > h3 {
     width: 100%;
     text-align: left;
+    margin-left: 1rem;
 }
 
 .active-card-project {
@@ -91,7 +92,7 @@
 }
 
 .projetc-logo{
-    width: 80%;
+    width: 100%;
     height: auto;
     margin-top: 4rem;
 }
@@ -99,5 +100,7 @@
 .description-project{
     color: #008080;
     font-weight: bold;
-    font-size: 2rem;
+    /* font-size: 2rem; */
+    padding: 0 2rem;
+    font-weight: 100;
 }

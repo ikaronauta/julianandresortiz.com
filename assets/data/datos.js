@@ -112,7 +112,15 @@ export const dataViews = {
         {
           id: 1,
           title: "Portal Analítica",
-          
+          srcLogo: "analitica/logo.png",
+          descripcion: "Aplicación web desarrollada con React para el grupo empresarial Valorem.",
+          itemsProyecto:[
+            {
+              title: "Login",
+              descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare mattis libero a suscipit. Nulla urna libero, euismod ac vestibulum sit amet.",
+              srcImg: ""
+            }
+          ]
         }
       ]
     },
@@ -262,7 +270,7 @@ export const dataViews = {
           id: 1,
           title: "Analytics Portal",
           srcLogo: "analitica/logo.png",
-          descripcion: "Proximamente",
+          descripcion: "Web application developed with React for the Valorem business group",
           itemsProyecto:[
             {
               title: "Login",
@@ -271,42 +279,6 @@ export const dataViews = {
             }
           ]
         },
-        // {
-        //   id: 2,
-        //   title: "Analytics Portal",
-        // },
-        // {
-        //   id: 3,
-        //   title: "Analytics Portal",
-        // },
-        // {
-        //   id: 4,
-        //   title: "Analytics Portal",
-        // },
-        // {
-        //   id: 5,
-        //   title: "Analytics Portal",
-        // },
-        // {
-        //   id: 6,
-        //   title: "Analytics Portal",
-        // },
-        // {
-        //   id: 7,
-        //   title: "Analytics Portal",
-        // },
-        // {
-        //   id: 8,
-        //   title: "Analytics Portal",
-        // },
-        // {
-        //   id: 9,
-        //   title: "Analytics Portal",
-        // },
-        // {
-        //   id: 10,
-        //   title: "Analytics Portal",
-        // },
       ]
     },
     viewPZ: {

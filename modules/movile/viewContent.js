@@ -365,9 +365,12 @@ function tarjetasProjects(){
     $(this).parent().toggleClass("active-card-project");
 
     if(!$(this).parent().attr("class").includes("active-card-project")){
-      $(this).parent().children().each(function(a, b){
-        if(a > 0) $(this).remove();
-      });
+      setTimeout(() => {
+        $(this).parent().children().each(function(a, b){
+          if(a > 0) $(this).remove();
+        });
+      }, 1500);
+      
       return;
     }
 
@@ -387,9 +390,12 @@ function tarjetasProjects(){
       text: dataProject.descripcion
     });
 
-    setTimeout(() => {
-      $(this).parent().append(logo);
-      $(this).parent().append(p);
-    }, 450);
+    $(this).parent().append(logo);
+    $(this).parent().append(p);
+
+    // setTimeout(() => {
+    //   $(this).parent().append(logo);
+    //   $(this).parent().append(p);
+    // }, 550);
   });
 }
