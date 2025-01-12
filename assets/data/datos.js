@@ -26,15 +26,15 @@ export const dataViews = {
       items: [
         {
           etiqueta: "<p>",
-          texto: "Desarrollador Junior con dos años de experiencia en desarrollo web. Soñador e idealista, amante de los gatos, Gueek y un poco introvertido.",
+          texto: "Ingeniero de Sistemas con experiencia en desarrollo web y empresarial, optimización de procesos y creación de soluciones innovadoras.",
         },
         {
           etiqueta: "<p>",
-          texto: "Con 40 años y radicado en Manizales, mi mayor inspiración son mis dos hijos: Miguel Ángel, de 16 años, y María del Mar, de 13.",
+          texto: "Dominio de lenguajes y frameworks como C#, .NET, React y Angular, con un enfoque en generar valor y eficiencia.",
         },
         {
           etiqueta: "<p>",
-          texto: "Me esfuerzo por encontrar soluciones practicas, simples pero eficientes.",
+          texto: "Destacado por mi pasión por resolver problemas complejos, mi atención al detalle y mi compromiso con el trabajo en equipo.",
         }
       ],
     },
@@ -183,15 +183,15 @@ export const dataViews = {
       items: [
         {
           etiqueta: "<p>",
-          texto: "Junior Developer with two years of experience in web development. Dreamer and idealist, cat lover, geek, and somewhat introverted.",
+          texto: "Systems Engineer with experience in web and enterprise development, process optimization, and developing innovative solutions.",
         },
         {
           etiqueta: "<p>",
-          texto: "At 40 years old and based in Manizales, my greatest inspiration is my two children: Miguel Ángel, aged 16, and María del Mar, aged 13.",
+          texto: "Proficient in languages and frameworks such as C#, .NET, React, and Angular, with a focus on delivering value and efficiency.",
         },
         {
           etiqueta: "<p>",
-          texto: "I strive to find practical, simple yet efficient solutions.",
+          texto: "Recognized for my passion for solving complex problems, attention to detail, and commitment to teamwork.",
         }
       ],
     },
@@ -343,15 +343,15 @@ export const dataViewsPC = {
       items: [
         {
           etiqueta: "<p>",
-          texto: "Desarrollador Junior con dos años de experiencia en desarrollo web. Soñador e idealista, amante de los gatos, Gueek y un poco introvertido.",
+          texto: "Ingeniero de Sistemas con experiencia en desarrollo web y empresarial, optimización de procesos y creación de soluciones innovadoras.",
         },
         {
           etiqueta: "<p>",
-          texto: "Con 40 años y radicado en Manizales, mi mayor inspiración son mis dos hijos: Miguel Ángel, de 16 años, y María del Mar, de 13.",
+          texto: "Dominio de lenguajes y frameworks como C#, .NET, React y Angular, con un enfoque en generar valor y eficiencia.",
         },
         {
           etiqueta: "<p>",
-          texto: "Me esfuerzo por encontrar soluciones practicas, simples pero eficientes.",
+          texto: "Destacado por mi pasión por resolver problemas complejos, mi atención al detalle y mi compromiso con el trabajo en equipo.",
         }
       ],
     },
@@ -483,15 +483,15 @@ export const dataViewsPC = {
       items: [
         {
           etiqueta: "<p>",
-          texto: "Junior Developer with two years of experience in web development. Dreamer and idealist, cat lover, geek, and somewhat introverted.",
+          texto: "Systems Engineer with experience in web and enterprise development, process optimization, and developing innovative solutions.",
         },
         {
           etiqueta: "<p>",
-          texto: "At 40 years old and based in Manizales, my greatest inspiration is my two children: Miguel Ángel, aged 16, and María del Mar, aged 13.",
+          texto: "Proficient in languages and frameworks such as C#, .NET, React, and Angular, with a focus on delivering value and efficiency.",
         },
         {
           etiqueta: "<p>",
-          texto: "I strive to find practical, simple yet efficient solutions.",
+          texto: "Recognized for my passion for solving complex problems, attention to detail, and commitment to teamwork.",
         }
       ],
     },
