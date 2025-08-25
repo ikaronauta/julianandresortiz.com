@@ -1,6 +1,6 @@
 export const dataEmail = {
   dataInit: "H8Br1sGNgkyP3oJfh",
-  serviceID: "service_yajibic",
+  serviceID: "service_jfnls5e",
   templateID: "template_e051t9p",
 };
 
