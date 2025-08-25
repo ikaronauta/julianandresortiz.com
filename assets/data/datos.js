@@ -30,7 +30,7 @@ export const dataViews = {
         },
         {
           etiqueta: "<p>",
-          texto: "Dominio de lenguajes y frameworks como C#, .NET, React y Angular, con un enfoque en generar valor y eficiencia.",
+          texto: "Dominio de lenguajes y frameworks como C#, .NET, React y Node.js, con un enfoque en generar valor y eficiencia.",
         },
         {
           etiqueta: "<p>",
@@ -142,14 +142,14 @@ export const dataViews = {
         {
           id: 1,
           title: "Instagram",
-          href: "https://www.instagram.com/julianandresortiz",
+          href: "https://www.instagram.com/ikaronauta",
           logo: "instagram.svg",
           active: true,
         },
         {
           id: 2,
           title: "LinkedIn",
-          href: "https://www.linkedin.com/in/juli%C3%A1n-andres-ortiz-galindo-programador-junior/",
+          href: "https://www.linkedin.com/in/ikaronauta/",
           logo: "linkedin.svg",
           active: true,
         },
@@ -163,14 +163,14 @@ export const dataViews = {
         {
           id: 4,
           title: "Whatsapp",
-          href: "whatsapp://send?phone=+573503349084",
+          href: "whatsapp://send?phone=+573053865489",
           logo: "whatsapp.svg",
           active: true,
         },
         {
           id: 5,
           title: "Email",
-          href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com",
+          href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com&body=Hola Julián,%0D%0A%0D%0AEstoy interesado en conocer más sobre tu portafolio.",
           logo: "email.svg",
           active: true,
         },
@@ -299,14 +299,14 @@ export const dataViews = {
         {
           id: 1,
           title: "Instagram",
-          href: "https://www.instagram.com/julianandresortiz",
+          href: "https://www.instagram.com/ikaronauta",
           logo: "instagram.svg",
           active: true,
         },
         {
           id: 2,
           title: "LinkedIn",
-          href: "https://www.linkedin.com/in/juli%C3%A1n-andres-ortiz-galindo-programador-junior/",
+          href: "https://www.linkedin.com/in/ikaronauta/",
           logo: "linkedin.svg",
           active: true,
         },
@@ -320,14 +320,14 @@ export const dataViews = {
         {
           id: 4,
           title: "Whatsapp",
-          href: "whatsapp://send?phone=+573503349084",
+          href: "whatsapp://send?phone=+573053865489",
           logo: "whatsapp.svg",
           active: true,
         },
         {
           id: 5,
           title: "Email",
-          href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com",
+          href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com&body=Hola Julián,%0D%0A%0D%0AEstoy interesado en conocer más sobre tu portafolio.",
           logo: "email.svg",
           active: true,
         },
@@ -347,7 +347,7 @@ export const dataViewsPC = {
         },
         {
           etiqueta: "<p>",
-          texto: "Dominio de lenguajes y frameworks como C#, .NET, React y Angular, con un enfoque en generar valor y eficiencia.",
+          texto: "Dominio de lenguajes y frameworks como C#, .NET, React y Node.js, con un enfoque en generar valor y eficiencia.",
         },
         {
           etiqueta: "<p>",
@@ -429,14 +429,14 @@ export const dataViewsPC = {
         {
           id: 1,
           title: "Instagram",
-          href: "https://www.instagram.com/julianandresortiz",
+          href: "https://www.instagram.com/ikaronauta",
           logo: "instagram.svg",
           active: true,
         },
         {
           id: 2,
           title: "LinkedIn",
-          href: "https://www.linkedin.com/in/juli%C3%A1n-andres-ortiz-galindo-programador-junior/",
+          href: "https://www.linkedin.com/in/ikaronauta/",
           logo: "linkedin.svg",
           active: true,
         },
@@ -450,14 +450,14 @@ export const dataViewsPC = {
         {
           id: 4,
           title: "Whatsapp",
-          href: "whatsapp://send?phone=+573503349084",
+          href: "whatsapp://send?phone=+573053865489",
           logo: "whatsapp.svg",
           active: true,
         },
         {
           id: 5,
           title: "Email",
-          href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com",
+          href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com&body=Hola Julián,%0D%0A%0D%0AEstoy interesado en conocer más sobre tu portafolio.",
           logo: "email.svg",
           active: true,
         },
@@ -569,14 +569,14 @@ export const dataViewsPC = {
         {
           id: 1,
           title: "Instagram",
-          href: "https://www.instagram.com/julianandresortiz",
+          href: "https://www.instagram.com/ikaronauta",
           logo: "instagram.svg",
           active: true,
         },
         {
           id: 2,
           title: "LinkedIn",
-          href: "https://www.linkedin.com/in/juli%C3%A1n-andres-ortiz-galindo-programador-junior/",
+          href: "https://www.linkedin.com/in/ikaronauta/",
           logo: "linkedin.svg",
           active: true,
         },
@@ -590,14 +590,14 @@ export const dataViewsPC = {
         {
           id: 4,
           title: "Whatsapp",
-          href: "whatsapp://send?phone=+573503349084",
+          href: "whatsapp://send?phone=+573053865489",
           logo: "whatsapp.svg",
           active: true,
         },
         {
           id: 5,
           title: "Email",
-          href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com",
+          href: "mailto:ortizgalindoj@gmail.com?subject=Mensaje desde www.julianandresortiz.com&body=Hola Julián,%0D%0A%0D%0AEstoy interesado en conocer más sobre tu portafolio.",
           logo: "email.svg",
           active: true,
         },

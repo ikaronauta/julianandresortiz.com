@@ -73,7 +73,7 @@ function gettItems(lenguaje){
 
   sideBar.append(createCabecera(lenguaje));
   sideBar.append(ul);
-  sideBar.append(createFooterSideBarMovil(lenguaje));
+  //sideBar.append(createFooterSideBarMovil(lenguaje));
 
   return sideBar;
 }

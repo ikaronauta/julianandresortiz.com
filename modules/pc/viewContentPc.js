@@ -19,7 +19,7 @@ let mostrarSkillsPC;
 export function viewContentPC(lenguaje) {
   root.addClass("scrollDisabled ");
   root.append(navPC(lenguaje));
-  root.append(opcionesLenguaje());
+  //root.append(opcionesLenguaje());
   root.append(createSectionSocialNetworksPC(lenguaje, "snPCleft"));
   root.append(createSectionSocialNetworksPC(lenguaje, "snPCrigth ocultarRigth"));
   root.append(contentView1PC(lenguaje).addClass("viewDisable"));
@@ -428,7 +428,7 @@ function createSectionSocialNetworksPC(lenguaje, clase) {
       href: item.href,
     });
 
-    if (item.title != "Email" && item.title != "Whatsapp") {
+    if (item.title != "Whatsapp") {
       a.attr("target", "_blank");
       a.attr("rel", "noopener noreferrer");
     }

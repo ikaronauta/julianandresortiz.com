@@ -76,7 +76,7 @@ function initEventListenersPC() {
         $("#mainPC").toggleClass("enableHomePC disableHomePC");
         setTimeout(() => {
           root.empty();
-          viewContentPC("en");
+          viewContentPC("es");
         }, 500);
 
       }, 1500);
