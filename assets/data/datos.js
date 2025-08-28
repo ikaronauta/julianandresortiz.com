@@ -338,7 +338,7 @@ export const dataViews = {
 
 export const dataViewsPC = {
   es:{
-    view1: {
+    viewMainPC: {
       title: "Acerca de mí",
       items: [
         {
@@ -355,7 +355,7 @@ export const dataViewsPC = {
         }
       ],
     },
-    view2: {
+    viewSkillsPC: {
       title: "Habilidades",
       items: [
         {
@@ -423,7 +423,66 @@ export const dataViewsPC = {
         },
       ]
     },
-    view3: {
+    viewProjectsPC: {
+      title: "Proyectos",
+      items: [
+        {
+          id: 1,
+          title: "Analitica Valorem",
+          href: "#",
+          logo: "assets/images/proyectos/analitica/logo.png",
+          active: true,
+        },
+         {
+          id: 2,
+          title: "En Desarrollo",
+          href: "#",
+          logo: "assets/images/icons/trabajo-en-progreso.png",
+          active: true,
+        },
+         {
+          id: 3,
+          title: "En Desarrollo",
+          href: "#",
+          logo: "assets/images/icons/trabajadores.png",
+          active: true,
+        },
+        {
+          id: 4,
+          title: "En Desarrollo",
+          href: "#",
+          logo: "assets/images/icons/construccion.png",
+          active: true,
+        },
+        {
+          id: 5,
+          title: "En Desarrollo",
+          href: "#",
+          logo: "assets/images/icons/seguridad.png",
+          active: true,
+        },
+        {
+          id: 6,
+          title: "En Desarrollo",
+          href: "#",
+          logo: "assets/images/icons/bosquejo.png",
+          active: true,
+        },
+      ],
+    },
+    viewPlayZonePC: {
+      title: "Zona de Juegos",
+      items: [
+        {
+          id: 1,
+          title: "Pelota 2D",
+          href: "https://pelota2d.julianandresortiz.com/",
+          logo: "",
+          active: true,
+        },
+      ],
+    },
+    viewContactPC: {
       title: "Contacto",
       items: [
         {
@@ -464,18 +523,6 @@ export const dataViewsPC = {
       ],
       small: "* Puedes escanear el siguiente código QR y visualizar el contenido desde tu smarthphone."
     },
-    view4: {
-      title: "Zona de Juegos",
-      items: [
-        {
-          id: 1,
-          title: "Pelota 2D",
-          href: "https://pelota2d.julianandresortiz.com/",
-          logo: "",
-          active: true,
-        },
-      ],
-    }
   },
   en: {
     view1: {

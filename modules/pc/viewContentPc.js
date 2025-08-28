@@ -22,9 +22,11 @@ export function viewContentPC(lenguaje) {
   //root.append(opcionesLenguaje());
   root.append(createSectionSocialNetworksPC(lenguaje, "snPCleft"));
   root.append(createSectionSocialNetworksPC(lenguaje, "snPCrigth ocultarRigth"));
-  root.append(contentView1PC(lenguaje).addClass("viewDisable"));
-  root.append(contentView2PC(lenguaje));
-  root.append(contentView3PC(lenguaje));
+  root.append(contentViewMainPC(lenguaje).addClass("viewDisable"));
+  root.append(contentViewSkillsPC(lenguaje));
+  root.append(contentViewProjectsPC(lenguaje));
+  root.append(contentViewPlayZonePC(lenguaje));
+  root.append(contentViewContactPC(lenguaje));
 
   $('ul li:first-child').addClass('li-active');
 
@@ -38,7 +40,7 @@ export function viewContentPC(lenguaje) {
 function listenersPC() {
   $(document).ready(function () {
     $("#nav-pc").addClass("navActive");
-    $("#view1PC").toggleClass("viewDisable viewEnable");
+    $("#viewMainPC").toggleClass("viewDisable viewEnable");
 
     $('.snPCleft').addClass('mostrarLeft');
     SocialNetWorkLeftOpen = true;
@@ -56,14 +58,20 @@ function listenersPC() {
     let disparador2 = - disparador1;
     let scrollTop = $(window).scrollTop();
 
-    let view1Top = $("#view1PC").offset().top;
+    let view1Top = $("#viewMainPC").offset().top;
     let diferenciaView1TopScrollTopPixeles = view1Top - scrollTop;
 
-    let view2Top = $("#view2PC").offset().top;
+    let view2Top = $("#viewSkillsPC").offset().top;
     let diferenciaView2TopScrollTopPixeles = view2Top - scrollTop;
 
-    let view3Top = $("#view3PC").offset().top;
+    let view3Top = $("#viewProjectsPC").offset().top;
     let diferenciaView3TopScrollTopPixeles = view3Top - scrollTop;
+
+    let view4Top = $("#viewPlayZonePC").offset().top;
+    let diferenciaView4TopScrollTopPixeles = view4Top - scrollTop;
+
+    let view5Top = $("#viewContactPC").offset().top;
+    let diferenciaView5TopScrollTopPixeles = view5Top - scrollTop;
 
     if (
       diferenciaView2TopScrollTopPixeles < disparadorSkills &&
@@ -83,7 +91,7 @@ function listenersPC() {
     }
 
     if (
-      diferenciaView3TopScrollTopPixeles < disparadorQR && !QRview3open
+      diferenciaView5TopScrollTopPixeles < disparadorQR && !QRview3open
     ) {
       setTimeout(() => {
         $('.imgQR').addClass('imgQRActive');
@@ -115,6 +123,30 @@ function listenersPC() {
     }
 
     if (diferenciaView3TopScrollTopPixeles <= disparador1 && !SocialNetWorkRigthOpen) {
+      //console.log("Ocultar socialNetWork Vista 2");
+      $('.snPCleft').removeClass('ocultarLeft');
+      $('.snPCleft').addClass('mostrarLeft');
+
+      //console.log("Mostrar socialNetWork Vista 3");
+      $('.snPCrigth').removeClass('mostrarRigth');
+      $('.snPCrigth').addClass('ocultarRigth');
+
+      SocialNetWorkRigthOpen = true;
+      SocialNetWorkLeftOpen = false;
+    }
+
+    if (diferenciaView4TopScrollTopPixeles <= disparador1 && !SocialNetWorkLeftOpen) {
+      $('.snPCleft').removeClass('mostrarLeft');
+      $('.snPCleft').addClass('ocultarLeft');
+
+      $('.snPCrigth').removeClass('ocultarRigth');
+      $('.snPCrigth').addClass('mostrarRigth');
+
+      SocialNetWorkLeftOpen = true;
+      SocialNetWorkRigthOpen = false;
+    }
+
+    if (diferenciaView5TopScrollTopPixeles <= disparador1 && !SocialNetWorkRigthOpen) {
       //console.log("Ocultar socialNetWork Vista 2");
       $('.snPCleft').removeClass('ocultarLeft');
       $('.snPCleft').addClass('mostrarLeft');
@@ -184,18 +216,15 @@ function navPC(lenguaje) {
   });
 
   let ul = $("<ul>");
-  let countLi = 0;
 
   for (const view in dataViewsPC[lenguaje]) {
-    countLi++;
-
     let li = $("<li>", {
-      id: `li-view${countLi}PC`,
+      id: `li-${view}`,
       class: "itemPC",
     });
 
     li.append($("<a>", {
-      href: `#${view}PC`,
+      href: `#${view}`,
       class: "enlaceLi"
     }).text(dataViewsPC[lenguaje][view].title));
     
@@ -239,8 +268,8 @@ function opcionesLenguaje(){
   return opcionesLenguaje;
 }
 
-function contentView1PC(lenguaje) {
-  let view1 = createView("view1PC");
+function contentViewMainPC(lenguaje) {
+  let view1 = createView("viewMainPC");
 
   let containerSection1 = $("<div>", {
     class: "containerSection1",
@@ -258,12 +287,12 @@ function contentView1PC(lenguaje) {
   });
 
   let h2 = $("<h2>", {
-    text: dataViewsPC[lenguaje].view1.title,
+    text: dataViewsPC[lenguaje].viewMainPC.title,
   });
 
   contTexto.append(h2);
 
-  dataViewsPC[lenguaje].view1.items.forEach(function (item) {
+  dataViewsPC[lenguaje].viewMainPC.items.forEach(function (item) {
     contTexto.append($(item.etiqueta).text(item.texto));
   });
 
@@ -274,12 +303,12 @@ function contentView1PC(lenguaje) {
   return view1;
 }
 
-function contentView2PC(lenguaje) {
+function contentViewSkillsPC(lenguaje) {
   let count = 0;
 
-  let view2 = createView("view2PC");
+  let view2 = createView("viewSkillsPC");
 
-  let containerSection2 = $("<div>", {
+  let containerSection = $("<div>", {
     class: "containerSection2",
   });
 
@@ -292,7 +321,7 @@ function contentView2PC(lenguaje) {
   });
 
   let h2 = $("<h2>", {
-    text: dataViewsPC[lenguaje].view2.title,
+    text: dataViewsPC[lenguaje].viewSkillsPC.title,
   });
 
   let containerGrid = $("<div>", {
@@ -301,9 +330,9 @@ function contentView2PC(lenguaje) {
 
   containerLeft.append(h2);
   containerSuperior.append(containerLeft);
-  containerSection2.append(containerSuperior);
+  containerSection.append(containerSuperior);
 
-  dataViewsPC[lenguaje].view2.items.forEach(function (item) {
+  dataViewsPC[lenguaje].viewSkillsPC.items.forEach(function (item) {
     let position = count % 2 == 0 ? "left-pc" : "right-pc";
     
     if(item.active) {
@@ -312,17 +341,109 @@ function contentView2PC(lenguaje) {
     }
   });
 
-  containerSection2.append(containerGrid);
+  containerSection.append(containerGrid);
 
-  view2.append(containerSection2);
+  view2.append(containerSection);
 
   return view2;
 }
 
-function contentView3PC(lenguaje) {
-  let view3 = createView("view3PC");
+function contentViewProjectsPC(lenguaje) {
+  let view = createView("viewProjectsPC");
 
-  let containerSection3 = $("<div>", {
+  let containerSection = $("<div>", {
+    class: "containerSectionProjectsPC",
+  });
+
+  let containerSuperior = $("<div>", {
+    class: "containerSuperior",
+  });
+
+  let containerRigth = $("<div>", {
+    class: "containerRight",
+  });
+
+  let h2 = $("<h2>", {
+    text: dataViewsPC[lenguaje].viewProjectsPC.title,
+  });
+
+  let containerGrid = $("<div>", {
+    class: "containerGridSectionProjectsPC",
+  });
+
+  dataViewsPC[lenguaje].viewProjectsPC.items.forEach(function(item){
+    let tarjeta = $("<div>", {
+      class: "card-project",
+    });
+
+    let h3 = $("<h3>", {
+      text: item.title,
+    });
+
+    let img = $("<img>", {
+      class: "card-project-img",
+      src: item.logo,
+      alt: "Proyecto",
+    })
+
+    tarjeta.append(h3);
+    tarjeta.append(img);
+    containerGrid.append(tarjeta);
+  });
+
+  containerRigth.append(h2);
+  containerSuperior.append(containerRigth);
+  containerSection.append(containerSuperior);
+  containerSection.append(containerGrid);
+
+  view.append(containerSection);
+
+  return view;
+}
+
+function contentViewPlayZonePC(lenguaje) {
+  let view = createView("viewPlayZonePC");
+
+  let containerSection = $("<div>", {
+    class: "containerSectionPlayZonePC",
+  });
+
+  let containerSuperior = $("<div>", {
+    class: "containerSuperior",
+  });
+
+  let containerLeft = $("<div>", {
+    class: "containerLeft",
+  });
+
+  let h2 = $("<h2>", {
+    text: dataViewsPC[lenguaje].viewPlayZonePC.title,
+  });
+
+  let containerGrid = $("<div>", {
+    class: "containerGridPlayZone",
+  });
+
+  let imgTemporal = $("<img>", {
+    class: "imgTemporal",
+    src: "assets/images/varios/seccion-en-construccion.png",
+    alt: "Sección en construcción",
+  });
+
+  containerLeft.append(h2);
+  containerSuperior.append(containerLeft);
+  containerSection.append(containerSuperior);
+  containerGrid.append(imgTemporal);
+  containerSection.append(containerGrid);
+  view.append(containerSection);
+
+  return view;
+}
+
+function contentViewContactPC(lenguaje) {
+  let view = createView("viewContactPC");
+
+  let containerSection = $("<div>", {
     class: "containerSection3",
   });
 
@@ -335,7 +456,7 @@ function contentView3PC(lenguaje) {
   });
 
   let h2 = $("<h2>", {
-    text: dataViewsPC[lenguaje].view3.title,
+    text: dataViewsPC[lenguaje].viewContactPC.title,
   });
 
   let containerInterior = $("<div>", {
@@ -354,7 +475,7 @@ function contentView3PC(lenguaje) {
 
   let small = $("<div>", {
     class: "textQR",
-    text: dataViewsPC[lenguaje].view3.small,
+    text: dataViewsPC[lenguaje].viewContactPC.small,
   });
 
   containerRigth.append(h2);
@@ -363,12 +484,12 @@ function contentView3PC(lenguaje) {
   containerQR.append(img);
   containerQR.append(small);
   containerInterior.append(containerQR);
-  containerSection3.append(containerSuperior);
-  containerSection3.append(containerInterior);
+  containerSection.append(containerSuperior);
+  containerSection.append(containerInterior);
 
-  view3.append(containerSection3);
+  view.append(containerSection);
 
-  return view3;
+  return view;
 }
 
 function createView(idView) {
@@ -423,7 +544,7 @@ function createSectionSocialNetworksPC(lenguaje, clase) {
     class: `containerSocialNetworks ${clase}`,
   });
 
-  dataViewsPC[lenguaje].view3.items.forEach(function (item) {
+  dataViewsPC[lenguaje].viewContactPC.items.forEach(function (item) {
     let a = $("<a>", {
       href: item.href,
     });
@@ -436,6 +557,7 @@ function createSectionSocialNetworksPC(lenguaje, clase) {
     let img = $("<img>", {
       class: "red-social",
       src: `assets/images/${clase.includes("snPCrigth") ? item.logo.replace(".", "_naranja.") : item.logo}`,
+      alt: "red social",
     });
 
     a.append(img);

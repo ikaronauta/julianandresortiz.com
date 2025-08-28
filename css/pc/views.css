@@ -135,7 +135,7 @@
 }
 
 /* Sección 1 */
-#view1PC {
+#viewMainPC {
     padding-left: 1em;
 }
 
@@ -197,7 +197,7 @@
 }
 
 /* Sección 2 */
-#view2PC {
+#viewSkillsPC {
     padding-right: 1em;
     background-color: aliceblue;
     color: black;
@@ -316,7 +316,133 @@
 }
 
 /* Sección 3 */
-#view3PC {
+
+#viewProjectsPC {
+    padding-left: 1em;
+    padding-top: 15vh;
+}
+
+.viewP .containerSectionProjectsPC {
+    width: 90%;
+    height: 90%;
+
+    border-right: 3px #FF9800 solid;
+    border-bottom: 3px #FF9800 solid;
+
+    border-radius: 0 5px 5px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerSectionProjectsPC .containerSuperior {
+    width: 100%;
+
+    display: flex;
+    justify-content: end;
+}
+
+.containerSectionProjectsPC .containerSuperior .containerRight {
+    width: 50%;
+    border-top: 3px #FF9800 solid;
+    border-radius: 5px 5px 0 0;
+
+    display: flex;
+    justify-content: start;
+}
+
+.containerSectionProjectsPC .containerSuperior h2 {
+    width: 75%;
+    text-align: center;
+    background-color: #FF9800;
+    border-radius: 0 0 5px 5px;
+}
+
+.containerGridSectionProjectsPC {   
+    width: 100%;
+    height: 80vh;
+    padding: 2em;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 4%;
+    justify-content: center;
+}
+
+.containerGridSectionProjectsPC .card-project {
+    background-color: aliceblue;
+    width: 250px;
+    height: 170px;
+    border-radius: 5px;
+    padding: 5%;
+    font-weight: bold;
+    border: 3px #FF9800 solid;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.containerGridSectionProjectsPC .card-project-img {
+    width: 50%;
+    height: auto;
+}
+
+/* Sección 4 */
+
+#viewPlayZonePC {
+    padding-right: 1em;
+    background-color: aliceblue;
+    color: black;
+    padding-top: 15vh;
+}
+
+.viewP .containerSectionPlayZonePC {
+    width: 90%;
+    height: 90%;
+
+    border-left: 3px black solid;
+    border-bottom: 3px black solid;
+
+    border-radius: 5px 0 0 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.containerSectionPlayZonePC .containerSuperior {
+    width: 100%;
+}
+
+.containerSectionPlayZonePC .containerSuperior .containerLeft {
+    width: 50%;
+    border-top: 3px black solid;
+    border-radius: 5px 5px 0 0;
+
+    display: flex;
+    justify-content: end;
+}
+
+.containerSectionPlayZonePC .containerSuperior h2 {
+    width: 75%;
+    text-align: center;
+    margin-left: 10%;
+
+    background-color: black;
+    color: #FF9800;
+
+    border-radius: 0 0 5px 5px;
+}
+
+/* Sección 5 */
+#viewContactPC {
     padding-left: 1em;
     padding-top: 15vh;
 }
@@ -331,7 +457,6 @@
     border-radius: 0 5px 5px 0;
 
     display: flex;
-
     flex-direction: column;
     /* justify-content: space-between;
     align-items: center;*/
@@ -348,15 +473,9 @@
 
 .containerSection3 .containerSuperior .containerRigth {
     width: 50%;
-
     border-top: 3px #FF9800 solid;
-
     border-radius: 5px 0 0 0
-        /* border-top: 3px black solid;
-    ;
 
-    display: flex;
-    justify-content: end; */
 }
 
 .containerSection3 .containerSuperior h2 {

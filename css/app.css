@@ -36,6 +36,20 @@ body {
     width: 100%;
 }
 
+/* Bloquear selección en toda la página */
+html, body {
+  user-select: none;           /* Estándar */
+  -webkit-user-select: none;   /* Safari/Chrome antiguos */
+  -ms-user-select: none;       /* Edge/IE antiguos */
+}
+
+/* Permitir selección donde sí la necesitas (inputs, textareas, código, etc.) */
+input, textarea, pre, code {
+  user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
+
 .view {
     height: inherit;
     width: inherit;
