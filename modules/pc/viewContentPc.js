@@ -376,6 +376,14 @@ function contentViewProjectsPC(lenguaje) {
       class: "card-project",
     });
 
+    let a = $("<a>", {
+      class: "link-project",
+      href: item.href,
+    });
+
+    a.attr("target", "_blank");
+    a.attr("rel", "noopener noreferrer");
+
     let h3 = $("<h3>", {
       text: item.title,
     });
@@ -384,10 +392,19 @@ function contentViewProjectsPC(lenguaje) {
       class: "card-project-img",
       src: item.logo,
       alt: "Proyecto",
-    })
+    });
 
-    tarjeta.append(h3);
-    tarjeta.append(img);
+    a.append(h3);
+    a.append(img);
+    tarjeta.append(a);
+
+    if(!item.active) {
+      a.on("click", function(e){
+        e.preventDefault();
+        alert("Nos encontramos trabajando en ello.")
+      });
+    }
+
     containerGrid.append(tarjeta);
   });
 
@@ -424,16 +441,52 @@ function contentViewPlayZonePC(lenguaje) {
     class: "containerGridPlayZone",
   });
 
-  let imgTemporal = $("<img>", {
-    class: "imgTemporal",
-    src: "assets/images/varios/seccion-en-construccion.png",
-    alt: "Sección en construcción",
+  dataViewsPC[lenguaje].viewPlayZonePC.items.forEach(function(item) {
+    let tarjeta = $("<div>", {
+      class: "card-play-zone",
+    });
+
+    let a = $("<a>", {
+      class: "link-play-zone",
+      href: item.href,
+    });
+
+    a.attr("target", "_blank");
+    a.attr("rel", "noopener noreferrer");
+
+    let h3 = $("<h3>", {
+      text: item.title,
+    });
+
+    let img = $("<img>", {
+      class: "card-play-zone-img",
+      src: item.logo,
+      alt: "Proyecto",
+    })
+    
+    if(!item.active) {
+      a.on("click", function(e){
+        e.preventDefault();
+        alert("Nos encontramos trabajando en ello.")
+      });
+    }
+
+    a.append(h3);
+    a.append(img);
+    tarjeta.append(a);
+
+    containerGrid.append(tarjeta);
   });
+
+  // let imgTemporal = $("<img>", {
+  //   class: "imgTemporal",
+  //   src: "assets/images/varios/seccion-en-construccion.png",
+  //   alt: "Sección en construcción",
+  // });
 
   containerLeft.append(h2);
   containerSuperior.append(containerLeft);
   containerSection.append(containerSuperior);
-  containerGrid.append(imgTemporal);
   containerSection.append(containerGrid);
   view.append(containerSection);
 

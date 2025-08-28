@@ -371,7 +371,7 @@
     justify-content: center;
 }
 
-.containerGridSectionProjectsPC .card-project {
+.containerGridSectionProjectsPC .card-project .link-project {
     background-color: aliceblue;
     width: 250px;
     height: 170px;
@@ -379,12 +379,18 @@
     padding: 5%;
     font-weight: bold;
     border: 3px #FF9800 solid;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    
+}
+
+.containerGridSectionProjectsPC .link-project:hover {
+    background-color: #FF9800;
 }
 
 .containerGridSectionProjectsPC .card-project-img {
@@ -433,12 +439,63 @@
 .containerSectionPlayZonePC .containerSuperior h2 {
     width: 75%;
     text-align: center;
-    margin-left: 10%;
+    /* margin-left: 10%; */
 
     background-color: black;
     color: #FF9800;
 
     border-radius: 0 0 5px 5px;
+}
+
+.containerGridPlayZone {   
+    width: 100%;
+    height: 80vh;
+    padding: 2em;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 4%;
+    justify-content: center;
+}
+
+.containerGridPlayZone .card-play-zone .link-play-zone {
+    background-color: #FF9800;
+    width: 250px;
+    height: 170px;
+    border-radius: 5px;
+    padding: 5%;
+    font-weight: bold;
+    border: 3px black solid;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerGridPlayZone .link-play-zone:hover {
+    background-color: black;
+    color: #FF9800;
+    box-shadow: 5px 5px 5px black;
+}
+
+.containerGridPlayZone .card-play-zone:hover .card-play-zone-img {
+    border: 3px #FF9800 solid;
+}
+
+.containerGridPlayZone .card-play-zone-img {
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+    border: 2px black solid;
+    background-color: aliceblue;
+}
+
+.disabled {
+    pointer-events: none;
 }
 
 /* Sección 5 */
