@@ -37,7 +37,7 @@ function viewContainerMain(lenguaje) {
     id: "logoFull",
     class: "logoFull",
     alt: "Julian A. Ortiz",
-    src: "assets/images/logoFull_blanco.png",
+    src: "assets/images/logoPC_naranja.png",
   });
 
   view.append(logo);
@@ -105,14 +105,36 @@ function viewContainerSkills(lenguaje) {
 
 function viewContainerProjects(lenguaje) {
   let view = createView("viewProjects");
-  
 
+  let div = $("<div>", {
+    class: "contentProjects",
+  });
+  
+  view.append(subTitle(dataViews[lenguaje].viewProjects.title));
+  view.append($("<hr>"));
+  view.append(div);
+  
   return view;
 }
 
 function viewContainerPlayZone(lenguaje) {
   let view = createView("viewPlayZone");
+
+  let div = $("<div>", {
+    class: "contentPlayZone",
+  });
+
+  let img = $("<img>", {
+    class: "img-content-playZone",
+    src: "assets/images/varios/seccion-en-construccion.png",
+    alt: "Sección en construccion",
+  });
   
+  div.append(img);
+
+  view.append(subTitle(dataViews[lenguaje].viewPlayZone.title));
+  view.append($("<hr>"));
+  view.append(div);
 
   return view;
 }

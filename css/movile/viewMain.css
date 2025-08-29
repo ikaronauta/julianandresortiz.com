@@ -19,7 +19,7 @@
 }
 
 #viewMain {
-    color: aliceblue;
+    color: #FF9800;
 }
 
 #viewMain .logoFull {
@@ -32,6 +32,7 @@
 }
 
 #viewMain h2,
+#viewProjects h2,
 #viewContact h2 {
     color: #FF9800;
 }
@@ -41,9 +42,33 @@
     color: black;
 }
 
+.contentProjects {
+    width: 100%;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #viewPlayZone {
     background-color: aliceblue;
     color: black;
+}
+
+.contentPlayZone {
+    width: 100%;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-content-playZone {
+    width: 100%;
 }
 
 #viewContact {
