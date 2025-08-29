@@ -76,7 +76,7 @@ function animacionImagen(viewMain) {
           viewMain.addClass("ocultar");
           setTimeout(() => {
             root.empty();
-            viewContent("en");
+            viewContent("es");
           }, 1000);
         }, 1000);
       }, 1000);

@@ -60,6 +60,10 @@ function gettItems(lenguaje){
       class: count == 0 ? "itemMovil itemEnable" : "itemMovil itemDisable",
     });
 
+    if(item == "viewContact") {
+      li.addClass("last");
+    }
+
     li.append($("<a>", {
       href: `#${item}`,
       class: "enlaceLi"

@@ -18,30 +18,35 @@
     transition: opacity 2s ease;
 }
 
-#view1 {
+#viewMain {
     color: aliceblue;
 }
 
-#view1 .logoFull {
+#viewMain .logoFull {
     width: 70%;
     margin: 0 auto 2rem auto;
 }
 
-#view1 p {
+#viewMain p {
     margin-bottom: 1rem;
 }
 
-#view1 h2,
-#view3 h2 {
+#viewMain h2,
+#viewContact h2 {
     color: #FF9800;
 }
 
-#view2 {
+#viewSkills {
     background-color: aliceblue;
     color: black;
 }
 
-#view3 {
+#viewPlayZone {
+    background-color: aliceblue;
+    color: black;
+}
+
+#viewContact {
     color: aliceblue;
     padding-bottom: 10vh;
 }
@@ -83,14 +88,14 @@
     background-color: #FF9800;
 }
 
-#view1 hr,
-#view3 hr {
+#viewMain hr,
+#viewContact hr {
     margin-bottom: 2rem;
     background-color: #FF9800;
     height: 1px;
 }
 
-#view2 hr {
+#viewSkills hr {
     margin-bottom: 2rem;
     background-color: black;
     height: 1px;
@@ -106,7 +111,7 @@
     transition: transform 0.4s ease;
 }
 
-#footerView3 {
+#footerViewContact {
     position: fixed;
     /* height: 10vh; */
     width: 100%;
@@ -121,12 +126,12 @@
     align-items: center;
 }
 
-.disableFooterView3 {
+.disableFooterViewContact {
     transform: translateY(110%);
     transition: transform 0.5s;
 }
 
-.enableFooterView3 {
+.enableFooterViewContact {
     transform: translateY(0);
     transition: transform 1.5s;
 }
@@ -156,7 +161,7 @@
         height: auto;
     }
 
-    #footerView3 {
+    #footerViewContact {
         display: none;
     }
 }

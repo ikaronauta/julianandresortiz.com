@@ -8,7 +8,7 @@ const root = $("#root");
 // Variables
 let windowHeight = $(window).height();
 let skillsPCOpen = false;
-let QRview3open = false;
+let QRviewContactOpen = false;
 let SocialNetWorkLeftOpen = false;
 let SocialNetWorkRigthOpen = false
 let countSkillsPc = 0;
@@ -64,8 +64,8 @@ function listenersPC() {
     let view2Top = $("#viewSkillsPC").offset().top;
     let diferenciaView2TopScrollTopPixeles = view2Top - scrollTop;
 
-    let view3Top = $("#viewProjectsPC").offset().top;
-    let diferenciaView3TopScrollTopPixeles = view3Top - scrollTop;
+    let viewContactTop = $("#viewProjectsPC").offset().top;
+    let diferenciaviewContactTopScrollTopPixeles = viewContactTop - scrollTop;
 
     let view4Top = $("#viewPlayZonePC").offset().top;
     let diferenciaView4TopScrollTopPixeles = view4Top - scrollTop;
@@ -91,11 +91,11 @@ function listenersPC() {
     }
 
     if (
-      diferenciaView5TopScrollTopPixeles < disparadorQR && !QRview3open
+      diferenciaView5TopScrollTopPixeles < disparadorQR && !QRviewContactOpen
     ) {
       setTimeout(() => {
         $('.imgQR').addClass('imgQRActive');
-        QRview3open = true;
+        QRviewContactOpen = true;
       }, 700);
     }
 
@@ -122,7 +122,7 @@ function listenersPC() {
       SocialNetWorkRigthOpen = false;
     }
 
-    if (diferenciaView3TopScrollTopPixeles <= disparador1 && !SocialNetWorkRigthOpen) {
+    if (diferenciaviewContactTopScrollTopPixeles <= disparador1 && !SocialNetWorkRigthOpen) {
       //console.log("Ocultar socialNetWork Vista 2");
       $('.snPCleft').removeClass('ocultarLeft');
       $('.snPCleft').addClass('mostrarLeft');
@@ -173,7 +173,7 @@ function listenersPC() {
   $("#es, #en").on("click", function(){
     var idioma = $(this).attr("id");
 
-    QRview3open = false;
+    QRviewContactOpen = false;
     skillsPCOpen = false;
     root.empty();
     viewContentPC(idioma);
@@ -269,7 +269,7 @@ function opcionesLenguaje(){
 }
 
 function contentViewMainPC(lenguaje) {
-  let view1 = createView("viewMainPC");
+  let view = createView("viewMainPC");
 
   let containerSection1 = $("<div>", {
     class: "containerSection1",
@@ -298,9 +298,9 @@ function contentViewMainPC(lenguaje) {
 
   containerSection1.append(img);
   containerSection1.append(contTexto);
-  view1.append(containerSection1);
+  view.append(containerSection1);
 
-  return view1;
+  return view;
 }
 
 function contentViewSkillsPC(lenguaje) {

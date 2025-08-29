@@ -5,7 +5,7 @@ import { createSideBarMovil } from "./sideBarMovile.js";
 // Variables
 let windowHeight = $(window).height();
 let countSkill = 0;
-let footerView3open = false;
+let footerViewContactOpen = false;
 let skillsOpen = false;
 let leng;
 
@@ -14,22 +14,24 @@ let mostrarSkill, ocultarSkills;
 
 export function viewContent(lenguaje) {
   leng = lenguaje;
-  $("#root").append(view1Container(lenguaje));
-  $("#root").append(view2Container(lenguaje));
-  $("#root").append(view3Container(lenguaje));
+  $("#root").append(viewContainerMain(lenguaje));
+  $("#root").append(viewContainerSkills(lenguaje));
+  $("#root").append(viewContainerProjects(lenguaje));
+  $("#root").append(viewContainerPlayZone(lenguaje));
+  $("#root").append(viewContainerContact(lenguaje));
   $("#root").append(createSideBarMovil(lenguaje));
-  $("#root").append(footerView3());
+  $("#root").append(footerViewContact());
 
   setTimeout(() => {
     $(".viewN").addClass("mostrar");
   }, 400);
 
-  listenersView1();
+  listenersViewMain();
   validarItemActivo();
 }
 
-function view1Container(lenguaje) {
-  let view1 = createView("view1");
+function viewContainerMain(lenguaje) {
+  let view = createView("viewMain");
 
   let logo = $("<img>", {
     id: "logoFull",
@@ -38,28 +40,28 @@ function view1Container(lenguaje) {
     src: "assets/images/logoFull_blanco.png",
   });
 
-  view1.append(logo);
-  view1.append(subTitle(dataViews[lenguaje].view1.title));
-  view1.append($("<hr>"));
+  view.append(logo);
+  view.append(subTitle(dataViews[lenguaje].viewMain.title));
+  view.append($("<hr>"));
 
-  dataViews[lenguaje].view1.items.forEach(function (item) {
-    view1.append(
+  dataViews[lenguaje].viewMain.items.forEach(function (item) {
+    view.append(
       $(item.etiqueta, {
         text: item.texto,
       })
     );
   });
 
-  return view1;
+  return view;
 }
 
-function view2Container(lenguaje) {
-  let view2 = createView("view2");
+function viewContainerSkills(lenguaje) {
+  let view = createView("viewSkills");
 
-  view2.append(subTitle(dataViews[lenguaje].view2.title));
-  view2.append($("<hr>"));
+  view.append(subTitle(dataViews[lenguaje].viewSkills.title));
+  view.append($("<hr>"));
 
-  dataViews[lenguaje].view2.items.forEach(function (skill) {
+  dataViews[lenguaje].viewSkills.items.forEach(function (skill) {
     if(!skill.active) return;
 
     let container = $("<div>", {
@@ -95,34 +97,48 @@ function view2Container(lenguaje) {
     cotainerNivel.append(nivel);
     container.append(left);
     container.append(cotainerNivel);
-    view2.append(container);
+    view.append(container);
   });
 
-  return view2;
+  return view;
 }
 
-function view3Container(lenguaje) {
-  let view3 = createView("view3");
+function viewContainerProjects(lenguaje) {
+  let view = createView("viewProjects");
+  
 
-  view3.append(subTitle(dataViews[lenguaje].view3.title));
-  view3.append($("<hr>"));
-  view3.append(createForm(lenguaje, "form-concact"));
-
-  return view3;
+  return view;
 }
 
-function listenersView1() {
+function viewContainerPlayZone(lenguaje) {
+  let view = createView("viewPlayZone");
+  
+
+  return view;
+}
+
+function viewContainerContact(lenguaje) {
+  let view = createView("viewContact");
+
+  view.append(subTitle(dataViews[lenguaje].viewContact.title));
+  view.append($("<hr>"));
+  view.append(createForm(lenguaje, "form-concact"));
+
+  return view;
+}
+
+function listenersViewMain() {
   $(window).on("scroll", function () {
     let disparadorSkills = windowHeight * 0.35;
-    let disparadorFooterVie3 = windowHeight * 0.35;
+    let disparadorFooter = windowHeight * 0.35;
     let scrollTop = $(window).scrollTop();
 
-    let view2Top = $("#view2").offset().top;
-    let view3Top = $("#view3").offset().top;
-    let diferenciaView2TopScrollTopPixeles = view2Top - scrollTop;
-    let diferenciaView3TopScrollTopPixeles = view3Top - scrollTop;
+    let viewSkillsTop = $("#viewSkills").offset().top;
+    let viewContactTop = $("#viewContact").offset().top;
+    let diferenciaViewSkillsTopScrollTopPixeles = viewSkillsTop - scrollTop;
+    let diferenciaViewContactTopScrollTopPixeles = viewContactTop - scrollTop;
 
-    if (diferenciaView2TopScrollTopPixeles < disparadorSkills && !skillsOpen) {
+    if (diferenciaViewSkillsTopScrollTopPixeles < disparadorSkills && !skillsOpen) {
       skillsOpen = true;
 
       mostrarSkill = setInterval(() => {
@@ -137,7 +153,7 @@ function listenersView1() {
       }, 500);
     }
 
-    if (diferenciaView2TopScrollTopPixeles > disparadorSkills && skillsOpen) {
+    if (diferenciaViewSkillsTopScrollTopPixeles > disparadorSkills && skillsOpen) {
       skillsOpen = false;
       countSkill = 0;
       clearInterval(mostrarSkill);
@@ -149,21 +165,21 @@ function listenersView1() {
     }
 
     if (
-      diferenciaView3TopScrollTopPixeles < disparadorFooterVie3 &&
-      !footerView3open
+      diferenciaViewContactTopScrollTopPixeles < disparadorFooter &&
+      !footerViewContactOpen
     ) {
-      $("#footerView3").removeClass("disableFooterView3");
-      $("#footerView3").addClass("enableFooterView3");
-      footerView3open = true;
+      $("#footerViewContact").removeClass("disableFooterViewContact");
+      $("#footerViewContact").addClass("enableFooterViewContact");
+      footerViewContactOpen = true;
     }
 
     if (
-      diferenciaView3TopScrollTopPixeles > disparadorFooterVie3 &&
-      footerView3open
+      diferenciaViewContactTopScrollTopPixeles > disparadorFooter &&
+      footerViewContactOpen
     ) {
-      $("#footerView3").removeClass("enableFooterView3");
-      $("#footerView3").addClass("disableFooterView3");
-      footerView3open = false;
+      $("#footerViewContact").removeClass("enableFooterViewContact");
+      $("#footerViewContact").addClass("disableFooterViewContact");
+      footerViewContactOpen = false;
     }
 
     $(".viewN").each(function(){
@@ -192,20 +208,20 @@ function listenersView1() {
   $(".enlaceLi").on("click", function () {
     var target = $(this).attr("href");
 
-    if(target != '#viewPS' && target != '#viewPZ')
+    if(target != '#viewProjects' && target != '#viewPlayZone')
       cerrarExtra();
 
-    if(target == '#viewPS'){
-      viewExtra(target);
-      abrirCerrarMenu();
-      return;
-    }
+    // if(target == '#viewProjects'){
+    //   viewExtra(target);
+    //   abrirCerrarMenu();
+    //   return;
+    // }
 
-    if(target == '#viewPZ'){
-      window.open('https://pelota2d.julianandresortiz.com/', '_blank');
-      abrirCerrarMenu();
-      return;
-    }
+    // if(target == '#viewPlayZone'){
+    //   window.open('https://pelota2d.julianandresortiz.com/', '_blank');
+    //   abrirCerrarMenu();
+    //   return;
+    // }
 
     ajustarEstilosNavBar(this);
 
@@ -262,7 +278,7 @@ function validarItemActivo(){
 }
 
 function viewExtra(idView){
-  let viewPS = createView(idView.substr(1), "viewExtra");
+  let viewProjects = createView(idView.substr(1), "viewExtra");
   let close = $("<p>", {
     id: "closeExtra",
     class: "closeExtra",
@@ -274,15 +290,15 @@ function viewExtra(idView){
     cerrarExtra();
   });
 
-  viewPS.append(subTitle(dataViews[leng][idView.substr(1)].title));
-  viewPS.append($("<hr>"));
-  viewPS.append(close);
+  viewProjects.append(subTitle(dataViews[leng][idView.substr(1)].title));
+  viewProjects.append($("<hr>"));
+  viewProjects.append(close);
 
-  $("#root").append(viewPS);
+  $("#root").append(viewProjects);
 
   setTimeout(() => {
-    viewPS.addClass("extraAbierto");
-    if(idView == "#viewPS") tarjetasProjects();
+    viewProjects.addClass("extraAbierto");
+    if(idView == "#viewProjects") tarjetasProjects();
   }, 100);
 }
 
@@ -301,13 +317,13 @@ function subTitle(title) {
   });
 }
 
-function footerView3() {
+function footerViewContact() {
   let footer = $("<footer>", {
-    id: "footerView3",
-    class: "disableFooterView3",
+    id: "footerViewContact",
+    class: "disableFooterViewContact",
   });
 
-  dataViews.es.view3.items.forEach(function (item) {
+  dataViews.es.viewContact.items.forEach(function (item) {
     let a = $("<a>", {
       href: item.href,
     });
@@ -345,7 +361,7 @@ function tarjetasProjects(){
     class: "container-projects",
   });
 
-  dataViews[leng]["viewPS"].items.forEach(function(proyecto){
+  dataViews[leng]["viewProjects"].items.forEach(function(proyecto){
     let div = $("<div>", {
       id: `item${proyecto.id}`,
       class: "container-project",
@@ -359,7 +375,7 @@ function tarjetasProjects(){
     contenedorProyectos.append(div);
   });
 
-  $("#viewPS").append(contenedorProyectos);
+  $("#viewProjects").append(contenedorProyectos);
 
   $(".title-project").on("click", function(){
     $(this).parent().toggleClass("active-card-project");
@@ -375,7 +391,7 @@ function tarjetasProjects(){
     }
 
     let id = $(this).parent().attr("id").substr(4);
-    let dataProject = dataViews[leng].viewPS.items.find(function(proyecto){
+    let dataProject = dataViews[leng].viewProjects.items.find(function(proyecto){
       return proyecto.id == id;
     });
 

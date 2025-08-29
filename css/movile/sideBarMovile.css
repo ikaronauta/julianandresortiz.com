@@ -108,7 +108,7 @@
 
 .listaMovil {
     width: 100%;
-    height: auto;
+    height: 100%;
     list-style: none;
 
     display: flex;
@@ -125,6 +125,10 @@
     display: flex;
     justify-content: start;
     align-items: center;
+}
+
+.last {
+    height: 100%;
 }
 
 

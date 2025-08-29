@@ -21,7 +21,7 @@ export const datosFormulario = {
 
 export const dataViews = {
   es: {
-    view1: {  
+    viewMain: {  
       title: "Acerca de mí",
       items: [
         {
@@ -38,8 +38,8 @@ export const dataViews = {
         }
       ],
     },
-    view2: {
-      title: "Skills",
+    viewSkills: {
+      title: "Habilidades",
       items: [
         {
           id: 1,
@@ -106,7 +106,7 @@ export const dataViews = {
         },
       ]
     },
-    viewPS: {
+    viewProjects: {
       title: "Proyectos",
       items: [
         {
@@ -124,7 +124,7 @@ export const dataViews = {
         }
       ]
     },
-    viewPZ: {
+    viewPlayZone: {
       title: "Zona de Juegos",
       items: [
         {
@@ -136,7 +136,7 @@ export const dataViews = {
         },
       ],
     },
-    view3: {
+    viewContact: {
       title: "Contacto",
       items: [
         {
@@ -178,7 +178,7 @@ export const dataViews = {
     },
   },
   en: {
-    view1: {  
+    viewMain: {  
       title: "About Me",
       items: [
         {
@@ -263,7 +263,7 @@ export const dataViews = {
         },
       ]
     },
-    viewPS: {
+    viewProjects: {
       title: "Projects",
       items: [
         {
@@ -281,7 +281,7 @@ export const dataViews = {
         },
       ]
     },
-    viewPZ: {
+    viewPlayZone: {
       title: "Play Zone",
       items: [
         {
@@ -293,7 +293,7 @@ export const dataViews = {
         },
       ],
     },
-    view3: {
+    viewContact: {
       title: "Contact",
       items: [
         {
@@ -560,7 +560,7 @@ export const dataViewsPC = {
     },
   },
   en: {
-    view1: {
+    viewMain: {
       title: "About Me",
       items: [
         {
@@ -645,7 +645,7 @@ export const dataViewsPC = {
         },
       ]
     },
-    view3: {
+    viewContact: {
       title: "Contact",
       items: [
         {
