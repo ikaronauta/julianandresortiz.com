@@ -1,3 +1,4 @@
+
 .viewN {
     height: 100vh;
     width: 100%;
@@ -42,14 +43,78 @@
     color: black;
 }
 
-.contentProjects {
+#viewProjects {
+    overflow-x: hidden;
+}
+
+.contentCarrouselProjects {
     width: 100%;
-    height: 80vh;
+    height: 80%;   
+
+    
+
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+
+.contentCarrouselProjects .contentCarrouselInterno {
+    width: 200%;
+    height: 100%;
+    padding: 0 20%;
+    transition: all .5s ease;
+
+    /* background-color: aqua; */
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.contentCarrouselInterno .containerProject {
+    background-color: aliceblue;
+    width: calc(100% / 2 - 3.5em);
+    height: 80%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5%;
+    font-weight: bold;
+    border: 3px #FF9800 solid;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.containerProject .img-project-movil {
+    width: 80%;
+    height: auto;
+}
+
+.containerPuntos {
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.containerPuntos .punto {
+    background-color: aliceblue;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
+.containerPuntos .punto.active {
+    background-color: #FF9800;
 }
 
 #viewPlayZone {

@@ -62,7 +62,7 @@ function viewContainerSkills(lenguaje) {
   view.append($("<hr>"));
 
   dataViews[lenguaje].viewSkills.items.forEach(function (skill) {
-    if(!skill.active) return;
+    if (!skill.active) return;
 
     let container = $("<div>", {
       class: "container-skill disable",
@@ -106,14 +106,65 @@ function viewContainerSkills(lenguaje) {
 function viewContainerProjects(lenguaje) {
   let view = createView("viewProjects");
 
-  let div = $("<div>", {
-    class: "contentProjects",
+  let carrousel = $("<div>", {
+    class: "contentCarrouselProjects",
   });
+
+  let divInterno = $("<div>", {
+    id: "contentCarrouselInterno",
+    class: "contentCarrouselInterno",
+  });
+
+  let ul = $("<ul>", {
+    class: "containerPuntos",
+  });
+
+  dataViews[lenguaje].viewProjects.items.forEach(function (project, idx) {
+    let containerProject = $("<div>", {
+      class: "containerProject",
+    });
+
+    let tittle = $("<h3>", {
+      class: "tittleProject",
+      text: project.title,
+    });
   
+    let img = $("<img>", {
+      class: "img-project-movil",
+      src: project.logo,
+      alt: project.title,
+    });
+
+    let li = $("<ul>", {
+      class: idx == 0 ? "punto active" : "punto",
+    });
+
+    li.on("click", function(){
+      let posicion = idx;
+      let operacion = posicion * -50;
+
+      divInterno.css("transform", "translateX(" + operacion + "%)");
+
+      $('.punto').each(function(i, item){
+        if(i == idx) $(item).addClass('active');
+        else $(item).removeClass('active');
+      });
+    });
+
+    ul.append(li);
+    containerProject.append(tittle);
+    containerProject.append(img);
+    divInterno.append(containerProject);
+
+  });
+
+  carrousel.append(divInterno);
+  carrousel.append(ul);
+
   view.append(subTitle(dataViews[lenguaje].viewProjects.title));
   view.append($("<hr>"));
-  view.append(div);
-  
+  view.append(carrousel);
+
   return view;
 }
 
@@ -129,7 +180,7 @@ function viewContainerPlayZone(lenguaje) {
     src: "assets/images/varios/seccion-en-construccion.png",
     alt: "Sección en construccion",
   });
-  
+
   div.append(img);
 
   view.append(subTitle(dataViews[lenguaje].viewPlayZone.title));
@@ -204,7 +255,7 @@ function listenersViewMain() {
       footerViewContactOpen = false;
     }
 
-    $(".viewN").each(function(){
+    $(".viewN").each(function () {
       let target = $(this).offset().top;
       let id = $(this).attr("id");
       let pr = $("nav").find(`a[href="#${id}"]`)
@@ -230,7 +281,7 @@ function listenersViewMain() {
   $(".enlaceLi").on("click", function () {
     var target = $(this).attr("href");
 
-    if(target != '#viewProjects' && target != '#viewPlayZone')
+    if (target != '#viewProjects' && target != '#viewPlayZone')
       cerrarExtra();
 
     // if(target == '#viewProjects'){
@@ -256,42 +307,42 @@ function listenersViewMain() {
     abrirCerrarMenu();
   });
 
-  $(".opcionLenguajeMovil").on("click", function(){
+  $(".opcionLenguajeMovil").on("click", function () {
     $("#root").empty();
     viewContent($(this).attr("id"));
   });
 }
 
-function ajustarEstilosNavBar(view){
-    if($(view).parent().attr("class").includes("itemEnable")) return;
+function ajustarEstilosNavBar(view) {
+  if ($(view).parent().attr("class").includes("itemEnable")) return;
 
-    $(".hermanoSuperior").removeClass("hermanoSuperior");
-    $(".hermanoInferior").removeClass("hermanoInferior");
+  $(".hermanoSuperior").removeClass("hermanoSuperior");
+  $(".hermanoInferior").removeClass("hermanoInferior");
 
-    $(".itemEnable").toggleClass("itemEnable itemDisable");
-    $(view).parent().toggleClass("itemEnable itemDisable");
+  $(".itemEnable").toggleClass("itemEnable itemDisable");
+  $(view).parent().toggleClass("itemEnable itemDisable");
 }
 
-function abrirCerrarMenu(){
+function abrirCerrarMenu() {
   $("#containerSideBar").toggleClass("sideBar-cerrado sideBar-abierto");
-    $("#containerSideBar").toggleClass("abiertoMenu cerradoMenu");
+  $("#containerSideBar").toggleClass("abiertoMenu cerradoMenu");
 }
 
-function validarItemActivo(){
-  $(".itemMovil").each(function(index, item){
-    if($(item).hasClass("itemEnable")){
-      if($(item).prev().length > 0){
+function validarItemActivo() {
+  $(".itemMovil").each(function (index, item) {
+    if ($(item).hasClass("itemEnable")) {
+      if ($(item).prev().length > 0) {
         $(item).prev().addClass("hermanoSuperior");
 
-        if($(item).next().length > 0){
+        if ($(item).next().length > 0) {
           $(item).next().addClass("hermanoInferior");
-        }else {
+        } else {
           $(item).parent().next().addClass("hermanoInferior");
         }
       } else {
         $(item).parent().prev().addClass("hermanoSuperior");
 
-        if($(item).next().length > 0){
+        if ($(item).next().length > 0) {
           $(item).next().addClass("hermanoInferior");
         }
       }
@@ -299,7 +350,7 @@ function validarItemActivo(){
   });
 }
 
-function viewExtra(idView){
+function viewExtra(idView) {
   let viewProjects = createView(idView.substr(1), "viewExtra");
   let close = $("<p>", {
     id: "closeExtra",
@@ -307,7 +358,7 @@ function viewExtra(idView){
     text: "X"
   });
 
-  close.on("click", function(){
+  close.on("click", function () {
     close.addClass("closeBotonPress");
     cerrarExtra();
   });
@@ -320,7 +371,7 @@ function viewExtra(idView){
 
   setTimeout(() => {
     viewProjects.addClass("extraAbierto");
-    if(idView == "#viewProjects") tarjetasProjects();
+    if (idView == "#viewProjects") tarjetasProjects();
   }, 100);
 }
 
@@ -367,23 +418,23 @@ function footerViewContact() {
   return footer;
 }
 
-function cerrarExtra(){
-  if($(".viewExtra").length == 0) return;
+function cerrarExtra() {
+  if ($(".viewExtra").length == 0) return;
 
   $($(".viewExtra")[0]).toggleClass("extraCerrado extraAbierto");
 
-    setTimeout(() => {
-      $($(".viewExtra")[0]).remove();
-    }, 1500);
+  setTimeout(() => {
+    $($(".viewExtra")[0]).remove();
+  }, 1500);
 }
 
-function tarjetasProjects(){
+function tarjetasProjects() {
 
   let contenedorProyectos = $("<div>", {
     class: "container-projects",
   });
 
-  dataViews[leng]["viewProjects"].items.forEach(function(proyecto){
+  dataViews[leng]["viewProjects"].items.forEach(function (proyecto) {
     let div = $("<div>", {
       id: `item${proyecto.id}`,
       class: "container-project",
@@ -399,21 +450,21 @@ function tarjetasProjects(){
 
   $("#viewProjects").append(contenedorProyectos);
 
-  $(".title-project").on("click", function(){
+  $(".title-project").on("click", function () {
     $(this).parent().toggleClass("active-card-project");
 
-    if(!$(this).parent().attr("class").includes("active-card-project")){
+    if (!$(this).parent().attr("class").includes("active-card-project")) {
       setTimeout(() => {
-        $(this).parent().children().each(function(a, b){
-          if(a > 0) $(this).remove();
+        $(this).parent().children().each(function (a, b) {
+          if (a > 0) $(this).remove();
         });
       }, 1500);
-      
+
       return;
     }
 
     let id = $(this).parent().attr("id").substr(4);
-    let dataProject = dataViews[leng].viewProjects.items.find(function(proyecto){
+    let dataProject = dataViews[leng].viewProjects.items.find(function (proyecto) {
       return proyecto.id == id;
     });
 

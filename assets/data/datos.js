@@ -111,17 +111,20 @@ export const dataViews = {
       items: [
         {
           id: 1,
-          title: "Portal Analítica",
-          srcLogo: "analitica/logo.png",
+          title: "Analitica Valorem",
+          href: "https://analitica.valorem.com.co/",
+          logo: "assets/images/proyectos/analitica/logo.png",
           descripcion: "Aplicación web desarrollada con React para el grupo empresarial Valorem.",
-          itemsProyecto:[
-            {
-              title: "Login",
-              descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare mattis libero a suscipit. Nulla urna libero, euismod ac vestibulum sit amet.",
-              srcImg: ""
-            }
-          ]
-        }
+          active: true,
+        },
+         {
+          id: 2,
+          title: "En Desarrollo",
+          href: "#",
+          logo: "assets/images/icons/trabajo-en-progreso.png",
+          descripcion: "",
+          active: false,
+        },
       ]
     },
     viewPlayZone: {
@@ -431,6 +434,7 @@ export const dataViewsPC = {
           title: "Analitica Valorem",
           href: "https://analitica.valorem.com.co/",
           logo: "assets/images/proyectos/analitica/logo.png",
+          descripcion: "Aplicación web desarrollada con React para el grupo empresarial Valorem.",
           active: true,
         },
          {
@@ -438,6 +442,7 @@ export const dataViewsPC = {
           title: "En Desarrollo",
           href: "#",
           logo: "assets/images/icons/trabajo-en-progreso.png",
+          descripcion: "",
           active: false,
         },
          {
@@ -445,6 +450,7 @@ export const dataViewsPC = {
           title: "En Desarrollo",
           href: "#",
           logo: "assets/images/icons/trabajadores.png",
+          descripcion: "",
           active: false,
         },
         {
@@ -452,6 +458,7 @@ export const dataViewsPC = {
           title: "En Desarrollo",
           href: "#",
           logo: "assets/images/icons/construccion.png",
+          descripcion: "",
           active: false,
         },
         {
@@ -459,6 +466,7 @@ export const dataViewsPC = {
           title: "En Desarrollo",
           href: "#",
           logo: "assets/images/icons/seguridad.png",
+          descripcion: "",
           active: false,
         },
         {
@@ -466,6 +474,7 @@ export const dataViewsPC = {
           title: "En Desarrollo",
           href: "#",
           logo: "assets/images/icons/bosquejo.png",
+          descripcion: "",
           active: false,
         },
       ],
