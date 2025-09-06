@@ -71,7 +71,6 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .contentCarrouselInterno .containerProject {
@@ -99,7 +98,6 @@
 }
 
 .containerPuntos {
-    
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -120,6 +118,7 @@
 #viewPlayZone {
     background-color: aliceblue;
     color: black;
+    overflow-x: hidden;
 }
 
 .contentPlayZone {
@@ -132,8 +131,69 @@
     justify-content: center;
 }
 
-.img-content-playZone {
+.contentCarrouselPlayZone {
     width: 100%;
+    height: 80%;   
+}
+
+.contentCarrouselPlayZone .contentCarrouselInternoPlayZone {
+    width: 200%;
+    height: 100%;
+    padding: 0 20%;
+    transition: all .5s ease;
+
+    /* background-color: aqua; */
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contentCarrouselInternoPlayZone .containerGame {
+    background-color: aliceblue;
+    width: calc(100% / 2 - 3.5em);
+    background-color: black;
+    height: 80%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5%;
+    font-weight: bold;
+    /* border: 3px #FF9800 solid; */
+    cursor: pointer;
+    text-decoration: none;
+    color: #FF9800;
+    box-shadow: 5px 5px 5px black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.containerGame .img-game-movil {
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
+    background-color: aliceblue;
+}
+
+.containerPuntosPlayZone {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.containerPuntosPlayZone .puntoGame {
+    background-color: #FF9800;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
+.containerPuntosPlayZone .puntoGame.activeGame {
+    background-color: black;
 }
 
 #viewContact {

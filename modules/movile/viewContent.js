@@ -171,21 +171,64 @@ function viewContainerProjects(lenguaje) {
 function viewContainerPlayZone(lenguaje) {
   let view = createView("viewPlayZone");
 
-  let div = $("<div>", {
-    class: "contentPlayZone",
+  let carrousel = $("<div>", {
+    class: "contentCarrouselPlayZone",
   });
 
-  let img = $("<img>", {
-    class: "img-content-playZone",
-    src: "assets/images/varios/seccion-en-construccion.png",
-    alt: "Sección en construccion",
+  let divInternoGame = $("<div>", {
+    id: "contentCarrouselInternoPlayZone",
+    class: "contentCarrouselInternoPlayZone",
   });
 
-  div.append(img);
+  let ul = $("<ul>", {
+    class: "containerPuntosPlayZone",
+  });
+
+  dataViews[lenguaje].viewPlayZone.items.forEach(function (game, idx) {
+    let containerGame = $("<div>", {
+      class: "containerGame",
+    });
+
+    let tittle = $("<h3>", {
+      class: "tittleGame",
+      text: game.title,
+    });
+  
+    let img = $("<img>", {
+      class: "img-game-movil",
+      src: game.logo,
+      alt: game.title,
+    });
+
+    let li = $("<ul>", {
+      class: idx == 0 ? "puntoGame activeGame" : "puntoGame",
+    });
+
+    li.on("click", function(){
+      let posicion = idx;
+      let operacion = posicion * -50;
+
+      divInternoGame.css("transform", "translateX(" + operacion + "%)");
+
+      $('.puntoGame').each(function(i, item){
+        if(i == idx) $(item).addClass('activeGame');
+        else $(item).removeClass('activeGame');
+      });
+    });
+
+    ul.append(li);
+    containerGame.append(tittle);
+    containerGame.append(img);
+    divInternoGame.append(containerGame);
+
+  });
+
+  carrousel.append(divInternoGame);
+  carrousel.append(ul);
 
   view.append(subTitle(dataViews[lenguaje].viewPlayZone.title));
   view.append($("<hr>"));
-  view.append(div);
+  view.append(carrousel);
 
   return view;
 }
