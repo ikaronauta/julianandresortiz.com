@@ -11,12 +11,6 @@ let showV1 = true;
 let vibrar, interContador, mostrarView1;
 
 export function homeMovile() {
-  const path = window.location.pathname;
-
-  if (path === "/habilidades") {
-    $("#viewSkillsPC")[0].scrollIntoView({ behavior: "smooth" });
-  }
-
   viewMain = $("<div>", {
     id: "mainPhone",
     class: "view homePhone",
