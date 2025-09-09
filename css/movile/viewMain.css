@@ -97,6 +97,12 @@
     height: auto;
 }
 
+.containerProject .descriptionProject {
+    font-weight: lighter;
+    font-size: 1rem;
+    text-align: justify;
+}
+
 .containerPuntos {
     display: flex;
     flex-flow: row nowrap;
@@ -186,14 +192,14 @@
 }
 
 .containerPuntosPlayZone .puntoGame {
-    background-color: #FF9800;
+    background-color: black;
     width: 2em;
     height: 2em;
     border-radius: 50%;
 }
 
 .containerPuntosPlayZone .puntoGame.activeGame {
-    background-color: black;
+    background-color: #FF9800;
 }
 
 #viewContact {

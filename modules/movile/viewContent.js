@@ -135,6 +135,20 @@ function viewContainerProjects(lenguaje) {
       alt: project.title,
     });
 
+    let p = $("<p>", {
+      class: "descriptionProject",
+      text: project.descripcion,
+    });
+
+    let a = $("<a>", {
+      class: "linkProject",
+      text: "Visitar",
+      href: project.href,
+    });
+
+    a.attr("target", "_blank");
+    a.attr("rel", "noopener noreferrer");
+
     let li = $("<ul>", {
       class: idx == 0 ? "punto active" : "punto",
     });
@@ -154,6 +168,8 @@ function viewContainerProjects(lenguaje) {
     ul.append(li);
     containerProject.append(tittle);
     containerProject.append(img);
+    containerProject.append(p);
+    containerProject.append(a);
     divInterno.append(containerProject);
 
   });
