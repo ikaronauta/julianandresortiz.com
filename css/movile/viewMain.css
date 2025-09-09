@@ -184,6 +184,22 @@
     background-color: aliceblue;
 }
 
+.containerGame .linkGame {
+    width: 100%;
+    color: #FF9800;
+    text-decoration: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerGame .linkGame .img-game-play-movil {
+    height: 100%;
+    width: auto;
+    margin-right: 0.5rem;
+}
+
 .containerPuntosPlayZone {
     display: flex;
     flex-flow: row nowrap;

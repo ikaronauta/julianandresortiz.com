@@ -216,6 +216,28 @@ function viewContainerPlayZone(lenguaje) {
       alt: game.title,
     });
 
+    let a = $("<a>", {
+      class: "linkGame",
+      href: game.href,
+    });
+
+    let play = $("<img>", {
+      class: "img-game-play-movil",
+      src: "assets/images/icons/play.png",
+      alt: game.title,
+    });
+
+    let p = $("<p>", {
+      class: "tittleGame",
+      text: "Jugar",
+    });
+
+    a.attr("target", "_blank");
+    a.attr("rel", "noopener noreferrer");
+
+    a.append(play);
+    a.append(p);
+
     let li = $("<ul>", {
       class: idx == 0 ? "puntoGame activeGame" : "puntoGame",
     });
@@ -235,6 +257,7 @@ function viewContainerPlayZone(lenguaje) {
     ul.append(li);
     containerGame.append(tittle);
     containerGame.append(img);
+    containerGame.append(a);
     divInternoGame.append(containerGame);
 
   });
